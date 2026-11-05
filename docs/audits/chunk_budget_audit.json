@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "tokenizer": "intfloat/multilingual-e5-large",
+  "input_source": "04_clean_corpus.parquet:full_text",
+  "population_rows": 7830,
+  "sampled_rows": 48,
+  "random_seed": 42,
+  "fulltext_token_distribution": {
+    "n": 48,
+    "min": 6675.0,
+    "p05": 17534.45,
+    "median": 31610.0,
+    "p95": 87863.44999999997,
+    "max": 396700.0,
+    "mean": 43704.895833333336
+  },
+  "chunk_count_distribution": {
+    "n": 48,
+    "min": 20.0,
+    "p05": 52.7,
+    "median": 94.5,
+    "p95": 261.7999999999999,
+    "max": 1181.0,
+    "mean": 130.35416666666666
+  },
+  "max_model_tokens": 512,
+  "prefix_tokens": 2,
+  "special_tokens": 2,
+  "content_capacity": 508,
+  "planned_content_tokens": 384,
+  "overlap_tokens": 48,
+  "approx_whole_corpus_chunk_count": 1020673,
+  "empty_fulltexts_sampled": 0,
+  "limitations": [
+    "Extrapolated whole-corpus count, NOT an exact number; sampling error is unquantified.",
+    "No embedding inference or throughput measurements have been run.",
+    "Retokenized model inputs need an independent <=512 token assertion.",
+    "Raw thesis text and per-thesis records remain private on HPC."
+  ]
+}

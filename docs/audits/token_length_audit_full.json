@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "model_tokenizer": "intfloat/multilingual-e5-large",
+  "requested_cutoff": 512,
+  "original_corpus_rows": 7830,
+  "sampled_rows": 7830,
+  "random_seed": 42,
+  "complete_corpus_audit": true,
+  "input_construction": "passage: + normalized original analysis_text",
+  "token_lengths": {
+    "n": 7830,
+    "min": 817,
+    "p05": 2391.0,
+    "median": 2821.0,
+    "p95": 3571.0999999999985,
+    "max": 10203,
+    "mean": 2904.0415070242657
+  },
+  "character_lengths": {
+    "n": 7830,
+    "min": 3348,
+    "p05": 14595.0,
+    "median": 15350.0,
+    "p95": 16066.55,
+    "max": 18515,
+    "mean": 15324.49220945083
+  },
+  "rows_over_cutoff": 7830,
+  "fraction_rows_over_cutoff": 1.0,
+  "mean_fraction_of_tokens_kept": 0.180562,
+  "note": "Reports original analysis_text truncation only. It cannot establish full-thesis coverage, because legacy analysis_text uses at most the start of each PDF."
+}
