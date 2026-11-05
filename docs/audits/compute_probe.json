@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "python_version": "3.10.20",
+  "python_implementation": "CPython",
+  "scheduler_client_available": {
+    "sbatch": false,
+    "srun": false
+  },
+  "installed_modules": {
+    "torch": false,
+    "transformers": true,
+    "sentence_transformers": false,
+    "numpy": true,
+    "pandas": true,
+    "pyarrow": true
+  },
+  "torch": {
+    "imported": false
+  },
+  "interpretation": "Report describes only the current Python process/container and hardware allocation."
+}
