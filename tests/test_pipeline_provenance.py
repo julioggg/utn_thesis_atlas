@@ -58,7 +58,7 @@ class StageAuditTests(unittest.TestCase):
             self.assertEqual(audit["stages"]["metadata"]["rows"], 3)
             self.assertEqual(audit["stages"]["downloads"]["download_success_rows"], 1)
             self.assertEqual(audit["stages"]["clean"]["repeated_text_prefix_hash_rows"], 1)
-            self.assertEqual(audit["classification"]["sdg4_by_faculty"][0]["sdg4_n"], 1)
+            self.assertEqual(audit["classification"]["sdg4_by_faculty"], [])  # suppress tiny groups
             self.assertEqual(audit["k_selection"]["best_k"], 75)
             self.assertEqual(audit["embeddings"]["shape"], [2, 1024])
             sanitized = json.dumps(audit)
