@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "stages": {
+    "metadata": {
+      "available": true,
+      "rows": 8860,
+      "present_columns": [
+        "handle_id",
+        "year",
+        "ok",
+        "title",
+        "authors",
+        "advisor",
+        "faculty",
+        "career",
+        "n_pdfs"
+      ],
+      "missing_columns": [],
+      "unique_handles": 8860,
+      "repeated_handle_rows": 0,
+      "title_nonempty": 0,
+      "authors_nonempty": 0,
+      "advisor_nonempty": 7641,
+      "faculty_nonempty": 6141,
+      "career_nonempty": 7653,
+      "harvest_success_rows": 8860,
+      "records_with_pdf_links": 7875
+    },
+    "downloads": {
+      "available": true,
+      "rows": 15477,
+      "present_columns": [
+        "handle_id",
+        "download_ok",
+        "size"
+      ],
+      "missing_columns": [],
+      "unique_handles": 7875,
+      "repeated_handle_rows": 7602,
+      "download_success_rows": 7887,
+      "download_failed_rows": 7590,
+      "handles_with_successful_pdf": 7840
+    },
+    "extraction": {
+      "available": true,
+      "rows": 7887,
+      "present_columns": [
+        "handle_id",
+        "extract_ok",
+        "chars",
+        "pages"
+      ],
+      "missing_columns": [],
+      "unique_handles": 7840,
+      "repeated_handle_rows": 47,
+      "extraction_success_rows": 7887,
+      "extraction_failed_rows": 0,
+      "handles_with_successful_extraction": 7840,
+      "extracted_character_counts": {
+        "n": 7887,
+        "min": 0.0,
+        "median": 144514.0,
+        "p05": 78553.7,
+        "p95": 307255.0,
+        "max": 1761733.0,
+        "mean": 164018.60821605174
+      },
+      "extractions_over_1000_chars": 7872
+    },
+    "clean": {
+      "available": true,
+      "rows": 7830,
+      "present_columns": [
+        "handle_id",
+        "text_hash",
+        "fulltext_chars",
+        "analysis_text"
+      ],
+      "missing_columns": [],
+      "unique_handles": 7830,
+      "repeated_handle_rows": 0,
+      "repeated_text_prefix_hash_rows": 43,
+      "hash_caution": "Legacy MD5 hashes only first 200000 text characters, not complete thesis.",
+      "fulltext_length_characters": {
+        "n": 7830,
+        "min": 2586.0,
+        "median": 144828.0,
+        "p05": 81248.75,
+        "p95": 307176.2,
+        "max": 1737021.0,
+        "mean": 164915.12809706258
+      },
+      "analysis_text_length_characters": {
+        "n": 7830,
+        "min": 3339.0,
+        "median": 15341.0,
+        "p05": 14586.0,
+        "p95": 16057.55,
+        "max": 18506.0,
+        "mean": 15315.49220945083
+      }
+    },
+    "topics": {
+      "available": true,
+      "rows": 7830,
+      "present_columns": [
+        "handle_id",
+        "topic"
+      ],
+      "missing_columns": [],
+      "unique_handles": 7830,
+      "repeated_handle_rows": 0,
+      "distinct_topics": 75
+    },
+    "alignment": {
+      "available": true,
+      "rows": 7830,
+      "present_columns": [
+        "handle_id",
+        "faculty",
+        "ods_top1",
+        "ods_top1_score",
+        "ods_top2_score",
+        "pdot_top1_score",
+        "pdot_top2_score",
+        "need_top1_score",
+        "need_top2_score"
+      ],
+      "missing_columns": [],
+      "unique_handles": 7830,
+      "repeated_handle_rows": 0
+    }
+  },
+  "classification": {
+    "ods_margin_top1_top2": {
+      "n": 7830,
+      "min": 1.6093254089355469e-06,
+      "median": 0.006131500005722046,
+      "p05": 0.00048362612724304197,
+      "p95": 0.020866820216178885,
+      "max": 0.03671687841415405,
+      "mean": 0.00787341594696045
+    },
+    "ods_fraction_margin_under_0_01": 0.6841634738186463,
+    "ods_fraction_margin_under_0_02": 0.9390804597701149,
+    "pdot_margin_top1_top2": {
+      "n": 7830,
+      "min": 1.2516975402832031e-06,
+      "median": 0.00492018461227417,
+      "p05": 0.0004321396350860596,
+      "p95": 0.016954702138900744,
+      "max": 0.04495316743850708,
+      "mean": 0.0063571566715836525
+    },
+    "pdot_fraction_margin_under_0_01": 0.7914431673052362,
+    "pdot_fraction_margin_under_0_02": 0.9748403575989782,
+    "need_margin_top1_top2": {
+      "n": 7830,
+      "min": 5.960464477539063e-08,
+      "median": 0.006438314914703369,
+      "p05": 0.0005010843276977539,
+      "p95": 0.024459120631217957,
+      "max": 0.0571131706237793,
+      "mean": 0.008644883520901203
+    },
+    "need_fraction_margin_under_0_01": 0.6687100893997445,
+    "need_fraction_margin_under_0_02": 0.9086845466155811,
+    "sdg4_by_faculty": [
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "n": 1381,
+        "sdg4_n": 268,
+        "sdg4_share": 0.19406
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "n": 703,
+        "sdg4_n": 45,
+        "sdg4_share": 0.06401
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "n": 1482,
+        "sdg4_n": 1298,
+        "sdg4_share": 0.87584
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "n": 693,
+        "sdg4_n": 4,
+        "sdg4_share": 0.00577
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "n": 1779,
+        "sdg4_n": 177,
+        "sdg4_share": 0.09949
+      },
+      {
+        "faculty": "Facultades",
+        "n": 31,
+        "sdg4_n": 8,
+        "sdg4_share": 0.25806
+      },
+      {
+        "faculty": "[unassigned]",
+        "n": 1761,
+        "sdg4_n": 849,
+        "sdg4_share": 0.48211
+      }
+    ]
+  },
+  "embeddings": {
+    "available": true,
+    "shape": [
+      7830,
+      1024
+    ],
+    "dtype": "float32",
+    "sampled_norms": {
+      "n": 1119,
+      "min": 0.9999999403953552,
+      "median": 1.0,
+      "p05": 0.9999999403953552,
+      "p95": 1.0,
+      "max": 1.0000001192092896,
+      "mean": 1.0
+    }
+  },
+  "k_selection": {
+    "available": true,
+    "row_count": 10,
+    "column_names": [
+      "k",
+      "silhouette_cosine_sample"
+    ],
+    "trials": [
+      {
+        "k": 50,
+        "cosine_silhouette": 0.056471
+      },
+      {
+        "k": 75,
+        "cosine_silhouette": 0.056761
+      },
+      {
+        "k": 100,
+        "cosine_silhouette": 0.047532
+      },
+      {
+        "k": 150,
+        "cosine_silhouette": 0.04787
+      },
+      {
+        "k": 200,
+        "cosine_silhouette": 0.038696
+      },
+      {
+        "k": 250,
+        "cosine_silhouette": 0.04158
+      },
+      {
+        "k": 300,
+        "cosine_silhouette": 0.025511
+      },
+      {
+        "k": 400,
+        "cosine_silhouette": 0.013774
+      },
+      {
+        "k": 500,
+        "cosine_silhouette": -0.001033
+      },
+      {
+        "k": 700,
+        "cosine_silhouette": -0.010828
+      }
+    ],
+    "best_k": 75
+  },
+  "privacy": "Only aggregate statistics are included. Review before public release."
+}

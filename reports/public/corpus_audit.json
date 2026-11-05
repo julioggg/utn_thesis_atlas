@@ -53,7 +53,7 @@
   },
   "faculty_metadata": {
     "empty": 1761,
-    "misc_or_unassigned": 0,
+    "misc_or_unassigned": 31,
     "distinct_nonempty": 6,
     "counts": {
       "Facultad de Ingeniería en Ciencias Aplicadas": 1779,
