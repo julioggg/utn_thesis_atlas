@@ -7,7 +7,8 @@ from pathlib import PurePosixPath
 SAFE_ROOTS = {"scripts", "docs", "tests", ".github"}
 SAFE_FILES = {".gitignore", "README.md", "LICENSE", "CITATION.cff"}
 PUBLIC_REPORTS = {"reports/public/hpc_inventory.json", "reports/public/corpus_audit.json",
-                  "reports/public/token_length_audit.json"}
+                  "reports/public/token_length_audit.json",
+                  "reports/public/provenance_audit.json"}
 FORBIDDEN_EXTENSIONS = {
     ".pdf", ".docx", ".xlsx", ".zip", ".tar", ".gz", ".7z", ".parquet",
     ".npy", ".npz", ".pkl", ".pickle", ".csv", ".tsv", ".jsonl", ".sqlite",
