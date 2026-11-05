@@ -80,7 +80,7 @@ def run(root: Path, corpus: Path | None = None) -> dict:
         report["faculty_metadata"] = {
             "empty": int(faculties.eq("").sum()),
             "misc_or_unassigned": int(faculties.str.contains(
-                "unassigned|no faculty|misc", case=False, regex=True, na=False).sum()),
+                "unassigned|no faculty|misc|^facultades$", case=False, regex=True, na=False).sum()),
             "distinct_nonempty": int(faculties.loc[faculties.ne("")].nunique()),
             "counts": {str(k): int(v) for k, v in faculties.value_counts().items()
                        if v >= 5 and str(k)},
