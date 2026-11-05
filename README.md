@@ -36,7 +36,7 @@ Inventory runs with the Python standard library. Corpus audit requires pandas an
 6. **Statistical robustness:** rerun inference on the five actual faculties; check sparse expected counts and effect sizes; quantify thematic dispersion, neighborhood mixing and topic trends without treating projected UMAP hull areas as physical quantities.
 7. **Reporting:** generate all manuscript tables and figures from one versioned analysis dataset. Deposit only release-cleared research materials in an archival repository after review.
 
-See `docs/REVIEW_PLAN.md` for the reviewer-to-analysis checklist and `docs/HPC_SYNC.md` for safe HPC synchronization. A third script, `scripts/audit_token_truncation.py`, measures the legacy E5 tokenizer's 512-token cutoff without exporting thesis text. Automated tests use synthetic data only.
+See `docs/REVIEW_PLAN.md` for the reviewer-to-analysis checklist and `docs/HPC_SYNC.md` for safe HPC synchronization. A stage-level audit, `scripts/audit_pipeline_provenance.py`, examines original pipeline attrition, SDG4 classifications by faculty, score margins and k-selection results. A third script, `scripts/audit_token_truncation.py`, measures the legacy E5 tokenizer's 512-token cutoff without exporting thesis text. Automated tests use synthetic data only.
 
 ## Source provenance
 
