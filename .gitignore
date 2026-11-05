@@ -56,3 +56,4 @@ reports/public/*
 !reports/public/hpc_inventory.json
 !reports/public/corpus_audit.json
 !reports/public/token_length_audit.json
+!reports/public/provenance_audit.json
