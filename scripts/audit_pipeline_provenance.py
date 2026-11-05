@@ -27,7 +27,7 @@ STAGES = {
 
 def dist(x):
     import pandas as pd
-    x = pd.to_numeric(x, errors="coerce").dropna()
+    x = pd.Series(pd.to_numeric(x, errors="coerce")).dropna()
     if x.empty:
         return {"n": 0}
     return {"n": int(len(x)), "min": float(x.min()), "median": float(x.median()),
