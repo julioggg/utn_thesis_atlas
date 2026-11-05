@@ -162,6 +162,12 @@ def pilot(args):
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(args.seed)
     root = args.project_root.expanduser().resolve()
+    workspace = Path(args.workspace).expanduser().resolve()
+    private_dir = Path(args.private_output_dir).expanduser().resolve()
+    if not args.unsafe_private_path and not private_dir.is_relative_to(workspace / "data"):
+        raise ValueError("Private vectors must be saved in the revision clone's ignored data/ directory")
+    if args.output.expanduser().resolve().is_relative_to(workspace / "data"):
+        raise ValueError("Aggregate report should not be mixed with private embeddings")
     corpus = root / "data/processed/04_clean_corpus.parquet"
     if not corpus.is_file():
         raise FileNotFoundError("Missing original clean corpus at expected location")
@@ -172,11 +178,14 @@ def pilot(args):
     texts = extract_rows(corpus, indices)
     tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=True,
                                               local_files_only=args.local_files_only)
+    tokenizer.model_max_length = max(tokenizer.model_max_length, 10**9)  # token counting only; per-window check stays 512
     prefix_ids = tokenizer.encode("passage: ", add_special_tokens=False)
     model_dtype = torch.float16 if device.type == "cuda" and args.precision == "fp16" else torch.float32
-    model = AutoModel.from_pretrained(args.model, torch_dtype=model_dtype,
+    model = AutoModel.from_pretrained(args.model, dtype=model_dtype,
                                      local_files_only=args.local_files_only).to(device)
     model.eval()
+    visible_gpu_gib = (float(torch.cuda.get_device_properties(device).total_memory) / 1024**3
+                       if device.type == "cuda" else None)
     model_max = 512
     if args.chunk_tokens + tokenizer.num_special_tokens_to_add(pair=False) + len(prefix_ids) > model_max:
         raise ValueError("Window exceeds the model's 512-token limit")
@@ -205,11 +214,7 @@ def pilot(args):
     elapsed = time.perf_counter() - t0
     peak_gib = (float(torch.cuda.max_memory_allocated()) / 1024**3
                 if device.type == "cuda" else None)
-    # PRIVATE HPC artifacts only. The repository ignores the complete data/ folder.
-    private_dir = Path(args.private_output_dir).expanduser().resolve()
-    if not args.unsafe_private_path and not private_dir.is_relative_to(
-        Path(args.workspace).expanduser().resolve() / "data"):
-        raise ValueError("Private vectors must be saved in the revision clone's ignored data/ directory")
+    # PRIVATE HPC artifacts only. The destination was validated BEFORE model inference.
     private_dir.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(private_dir / "gpu_pilot_vectors.npz",
                         row_indices=np.asarray(rows, dtype=np.int64),
@@ -220,7 +225,8 @@ def pilot(args):
         "schema_version": 1, "status": "pilot_only", "model": args.model,
         "hardware": {"device": args.device, "gpu_model":
                      torch.cuda.get_device_name(0) if device.type == "cuda" else None,
-                     "peak_allocated_gib": None if peak_gib is None else round(peak_gib, 3)},
+                     "peak_allocated_gib": None if peak_gib is None else round(peak_gib, 3),
+                     "visible_gpu_memory_gib": None if visible_gpu_gib is None else round(visible_gpu_gib, 2)},
         "software": {"torch": torch.__version__, "transformers": transformers.__version__,
                      "precision": args.precision if device.type == "cuda" else "fp32"},
         "method": {
@@ -258,8 +264,8 @@ def main():
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--chunk-tokens", type=int, default=384)
     p.add_argument("--overlap", type=int, default=48)
-    p.add_argument("--batch-size", type=int, default=4)
-    p.add_argument("--max-chunks", type=int, default=800)
+    p.add_argument("--batch-size", type=int, default=1)
+    p.add_argument("--max-chunks", type=int, default=400)
     p.add_argument("--precision", choices=("fp16", "fp32"), default="fp16")
     p.add_argument("--device", choices=("cuda", "cpu"), default="cuda")
     p.add_argument("--allow-cpu", action="store_true")
