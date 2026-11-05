@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "project_path_redacted": true,
+  "known_file_locations": {
+    "data/metadata/01_items_metadata_full_v2.parquet": {
+      "exists": true,
+      "size_bytes": 8712522
+    },
+    "data/metadata/01_items_metadata.parquet": {
+      "exists": true,
+      "size_bytes": 8712522
+    },
+    "data/metadata/02_pdf_downloads.parquet": {
+      "exists": true,
+      "size_bytes": 706960
+    },
+    "data/metadata/03_text_extraction.parquet": {
+      "exists": true,
+      "size_bytes": 413723
+    },
+    "data/processed/04_clean_corpus.parquet": {
+      "exists": true,
+      "size_bytes": 674304340
+    },
+    "data/processed/05_embeddings.npy": {
+      "exists": true,
+      "size_bytes": 32071808
+    },
+    "data/processed/06_corpus_with_topics.parquet": {
+      "exists": true,
+      "size_bytes": 51582510
+    },
+    "data/processed/07_alignment_pdot_ods_needs.parquet": {
+      "exists": true,
+      "size_bytes": 52174664
+    },
+    "reports/06_k_optimization.csv": {
+      "exists": true,
+      "size_bytes": 274
+    },
+    "code/scripts/utn_atlas_pipeline.py": {
+      "exists": false,
+      "size_bytes": null
+    },
+    "code/scripts/utn_harvest_full_v2.py": {
+      "exists": false,
+      "size_bytes": null
+    },
+    "code/scripts/utn_atlas_q1_extras.py": {
+      "exists": false,
+      "size_bytes": null
+    },
+    "scripts/utn_atlas_pipeline.py": {
+      "exists": false,
+      "size_bytes": null
+    },
+    "scripts/utn_harvest_full_v2.py": {
+      "exists": false,
+      "size_bytes": null
+    },
+    "scripts/utn_atlas_q1_extras.py": {
+      "exists": false,
+      "size_bytes": null
+    }
+  },
+  "known_directories": {
+    "data/metadata": true,
+    "data/processed": true,
+    "data/pdfs": true,
+    "data/texts": true,
+    "reports": true,
+    "reports/figures": true,
+    "code": false,
+    "scripts": false,
+    "logs": true
+  },
+  "caution": "Only expected paths are checked. Missing here does not prove absent elsewhere."
+}
