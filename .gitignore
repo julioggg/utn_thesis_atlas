@@ -1,4 +1,4 @@
-# Thesis files, row-level metadata, embeddings, models and private outputs must remain on HPC.
+# Thesis files, record-level metadata, embeddings, private data and credentials stay on HPC.
 data/
 datasets/
 metadata/
@@ -55,3 +55,4 @@ reports/*
 reports/public/*
 !reports/public/hpc_inventory.json
 !reports/public/corpus_audit.json
+!reports/public/token_length_audit.json
