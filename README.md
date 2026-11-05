@@ -18,8 +18,8 @@ The original HPC project remains the source of truth. Work in a separate clone; 
 # Run from your HOME (or another suitable workspace), not inside your original project
 git clone https://github.com/julioggg/utn_thesis_atlas.git utn_thesis_atlas_revision
 cd utn_thesis_atlas_revision
-python3 scripts/hpc_inventory.py --project-root "$HOME/utn_thesis_atlas" --output reports/hpc_inventory.json
-python3 scripts/audit_corpus.py --project-root "$HOME/utn_thesis_atlas" --output reports/corpus_audit.json
+python3 scripts/hpc_inventory.py --project-root "$HOME/utn_thesis_atlas" --output reports/public/hpc_inventory.json
+python3 scripts/audit_corpus.py --project-root "$HOME/utn_thesis_atlas" --output reports/public/corpus_audit.json
 ```
 
 If your original path is not `$HOME/utn_thesis_atlas`, replace it with the actual absolute path returned by `realpath utn_thesis_atlas`.
@@ -36,7 +36,7 @@ Inventory runs with the Python standard library. Corpus audit requires pandas an
 6. **Statistical robustness:** rerun inference on the five actual faculties; check sparse expected counts and effect sizes; quantify thematic dispersion, neighborhood mixing and topic trends without treating projected UMAP hull areas as physical quantities.
 7. **Reporting:** generate all manuscript tables and figures from one versioned analysis dataset. Deposit only release-cleared research materials in an archival repository after review.
 
-See `docs/REVIEW_PLAN.md` for a reviewer-to-analysis checklist and `docs/HPC_SYNC.md` for Git workflow.
+See `docs/REVIEW_PLAN.md` for the reviewer-to-analysis checklist and `docs/HPC_SYNC.md` for safe HPC synchronization. A third script, `scripts/audit_token_truncation.py`, measures the legacy E5 tokenizer's 512-token cutoff without exporting thesis text. Automated tests use synthetic data only.
 
 ## Source provenance
 
