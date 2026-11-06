@@ -21,6 +21,8 @@ class ComparisonTests(unittest.TestCase):
             dst = self.root / "data/processed" / (name + ".parquet")
             dst.parent.mkdir(parents=True, exist_ok=True)
             pd.DataFrame({"handle_id": ["secret-A", "secret-B", "secret-C", "secret-D"]}).to_parquet(dst)
+        pd.DataFrame({"handle_id": ["secret-A", "secret-B", "secret-C", "secret-D"]}).to_csv(
+            self.root / "data/processed/05_embedding_index.csv", index=False)
         embeddings = np.eye(4, 1024, dtype=np.float32)
         np.save(self.root / "data/processed/05_embeddings.npy", embeddings)
         self.run_id = "synthetic"
@@ -42,7 +44,7 @@ class ComparisonTests(unittest.TestCase):
     def test_full_alignment_and_aggregate_output(self):
         actual = comparison(self.root, self.workspace, self.run_id)
         self.assertEqual(actual["n_pilot_theses"], 4)
-        self.assertEqual(actual["alignment_verified"], {"04_vs_06": True, "04_vs_07": True})
+        self.assertEqual(actual["alignment_verified"], {"04_vs_05_embedding_index": True, "04_vs_06": True, "04_vs_07": True})
         self.assertAlmostEqual(actual["original_new_same_thesis_cosine"]["mean"], 1.0)
         output = json.dumps(actual)
         self.assertNotIn("secret-A", output)
