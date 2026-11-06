@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "section_boundary_review_progress",
+  "sample_rows": 80,
+  "sample_integrity": "passed",
+  "excluded_450_thematic_validation_overlap": true,
+  "sample_design": "balanced purposive strata; not a representative prevalence estimator",
+  "total_reviewed": 0,
+  "total_not_started": 80,
+  "total_in_progress": 0,
+  "total_needs_adjudication": 0,
+  "total_invalid": 0,
+  "by_stratum": {
+    "late_reference_with_appendix": {
+      "sample_rows": 20,
+      "reviewed": 0,
+      "not_started": 20,
+      "in_progress": 0,
+      "needs_adjudication": 0,
+      "invalid": 0
+    },
+    "late_reference_without_appendix": {
+      "sample_rows": 20,
+      "reviewed": 0,
+      "not_started": 20,
+      "in_progress": 0,
+      "needs_adjudication": 0,
+      "invalid": 0
+    },
+    "early_reference_only": {
+      "sample_rows": 20,
+      "reviewed": 0,
+      "not_started": 20,
+      "in_progress": 0,
+      "needs_adjudication": 0,
+      "invalid": 0
+    },
+    "no_reference_heading": {
+      "sample_rows": 20,
+      "reviewed": 0,
+      "not_started": 20,
+      "in_progress": 0,
+      "needs_adjudication": 0,
+      "invalid": 0
+    }
+  },
+  "reviewed_answer_counts": {
+    "human_heading_is_real_references_start": {
+      "yes": 0,
+      "no": 0
+    },
+    "human_tail_contains_scientific_contribution": {
+      "yes": 0,
+      "no": 0
+    },
+    "human_trim_from_boundary_safe": {
+      "yes": 0,
+      "no": 0
+    }
+  },
+  "validation_issue_counts": {},
+  "manual_review_complete": false,
+  "boundaries_approved_for_automatic_trimming": false,
+  "limitations": [
+    "No thesis-specific IDs, positions, excerpts, notes or raw answers are exported.",
+    "Even if human reviewers approve boundaries, automation requires a separately frozen, validated extraction protocol.",
+    "No label/accuracy metrics can be claimed before sufficient independent validation.",
+    "Strata were sampled equally; pooled proportions are not unbiased population prevalence estimates.",
+    "Without manually verified negatives and positives across all cases, recall cannot be inferred from heading counts."
+  ]
+}
