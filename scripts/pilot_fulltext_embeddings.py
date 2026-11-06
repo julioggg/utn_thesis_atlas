@@ -182,7 +182,8 @@ def pilot(args):
     prefix_ids = tokenizer.encode("passage: ", add_special_tokens=False)
     model_dtype = torch.float16 if device.type == "cuda" and args.precision == "fp16" else torch.float32
     model = AutoModel.from_pretrained(args.model, dtype=model_dtype,
-                                     local_files_only=args.local_files_only).to(device)
+                                     local_files_only=args.local_files_only,
+                                     use_safetensors=True).to(device)
     model.eval()
     visible_gpu_gib = (float(torch.cuda.get_device_properties(device).total_memory) / 1024**3
                        if device.type == "cuda" else None)
