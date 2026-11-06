@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "boundary_review_prepared_unannotated",
+  "source": "04_clean_corpus.parquet:full_text",
+  "population_rows": 7830,
+  "excluded_previously_selected_450_validation_rows": 450,
+  "method": "four-stratum purposive verification, NOT prevalence sampling",
+  "random_seed": 20261106,
+  "min_late_fraction": 0.55,
+  "strata_population_counts": {
+    "late_reference_with_appendix": 5749,
+    "no_reference_heading": 368,
+    "early_reference_only": 144,
+    "late_reference_without_appendix": 1569
+  },
+  "strata_eligible_counts_after_exclusion": {
+    "late_reference_with_appendix": 5434,
+    "late_reference_without_appendix": 1460,
+    "early_reference_only": 138,
+    "no_reference_heading": 348
+  },
+  "private_review_records_total": 80,
+  "private_review_records_by_stratum": {
+    "late_reference_with_appendix": 20,
+    "late_reference_without_appendix": 20,
+    "early_reference_only": 20,
+    "no_reference_heading": 20
+  },
+  "manual_review_complete": false,
+  "boundaries_approved_for_automatic_trimming": false,
+  "notes": [
+    "The study checks heading detection, not classifier performance.",
+    "Each row contains private handle and short source excerpts; keep review CSV on CEDIA.",
+    "Human reviewer must inspect full local theses and preserve potentially relevant appendices.",
+    "Reviewers should not infer population prevalence from equally sampled strata.",
+    "No original thesis file, extracted text, old embedding, or 450-thesis annotation template is modified.",
+    "Only non-identifying aggregate sampling counts are written to docs/audits."
+  ]
+}
