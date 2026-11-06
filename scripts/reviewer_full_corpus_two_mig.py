@@ -294,9 +294,11 @@ def orchestrate(args):
     manifest={
         "schema_version":1,"original_root":str(root),
         "original_04_parquet_sha256":sha256_file(original),
-        "code_git_commit":subprocess.run(
-            ["git","rev-parse","HEAD"],cwd=workspace,capture_output=True,
-            text=True,check=True).stdout.strip(),
+        "code_fingerprints":{
+            "full_corpus_script":sha256_file(Path(__file__)),
+            "e5_window_encoder_script":sha256_file(
+                workspace/"scripts/pilot_fulltext_embeddings.py"),
+        },
         "population_rows":n,
         "model":MODEL,
         "chunk_tokens":args.chunk_tokens,
@@ -365,7 +367,7 @@ def orchestrate(args):
             "status":"complete_full_corpus_fulltext_E5_aggregated_candidate",
             "population":n,
             "source_corpus_sha256":manifest["original_04_parquet_sha256"],
-            "analysis_code_git_commit":manifest["code_git_commit"],
+            "analysis_code_fingerprints":manifest["code_fingerprints"],
             "model_revision_from_cache":revisions[0],
             "alignment":alignment,
             "model":MODEL,
