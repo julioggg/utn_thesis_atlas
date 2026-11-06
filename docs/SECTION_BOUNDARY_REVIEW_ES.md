@@ -62,3 +62,27 @@ Una coincidencia con el título "Referencias" NO prueba que todo el texto poster
 Si la revisión confirma que la detección de límites es suficientemente fiable, diseñar tres variantes comparables sobre los mismos textos: (1) texto completo, (2) texto completo sin bibliografía identificada de forma validada y con anexos preservados o gestionados explícitamente, (3) selección de secciones científicas. Evaluar en piloto la cobertura y los embeddings; después comparar con las etiquetas humanas independientes de ODS/PDOT.
 
 No usar la menor similitud entre tesis como indicador sustituto de exactitud.
+
+
+## Auditoría de integridad y avance de la revisión humana
+
+Después de preparar la muestra de 80 tesis, comprobar que el archivo privado permanece íntegro. Este comando **solo lee el CSV privado y el maestro de las 450 tesis** y escribe un resumen agregado.
+
+```bash
+cd "$HOME/utn_thesis_atlas_revision"
+git pull --ff-only origin main
+source "$HOME/.venvs/utn-atlas-audit/bin/activate"
+
+python scripts/audit_section_boundary_review.py \
+  --private-csv data/revision_private/section_boundary_review_v1/section_boundary_review_private.csv \
+  --validation-master data/revision_private/validation/sample_master_private.csv \
+  --output docs/audits/section_boundary_review_progress.json
+
+cat docs/audits/section_boundary_review_progress.json
+```
+
+Antes de la codificación manual, el resultado esperado es: `sample_rows=80`, `total_not_started=80`, `total_reviewed=0`, `total_invalid=0`, sin solapamiento con las 450 tesis de validación temática. Si el resultado es diferente, no editar ni regenerar los datos sin inspeccionar el problema.
+
+Las respuestas de las tres columnas `human_heading_is_real_references_start`, `human_tail_contains_scientific_contribution` y `human_trim_from_boundary_safe` deben ser `yes`, `no` o `uncertain`. Una respuesta `uncertain` permanece pendiente de adjudicación. Una decisión `yes` sobre eliminar el tramo final es lógicamente incompatible con afirmar que el tramo contiene contribución científica. El script marca estas contradicciones, pero **no reemplaza el juicio humano**.
+
+Si revisas el resumen y confirmas que solo contiene conteos agregados, puedes publicar **únicamente** `docs/audits/section_boundary_review_progress.json` siguiendo `scripts/git_safety.py`. No publicar nunca el archivo `section_boundary_review_private.csv`, que contiene fragmentos de textos originales y referencias a tesis.
