@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "annotation_progress_only",
+  "selected_theses": 450,
+  "coder_sheet_integrity": "passed",
+  "coder_progress": {
+    "A": {
+      "rows": 450,
+      "complete": 0,
+      "not_started": 450,
+      "in_progress": 0,
+      "invalid": 0,
+      "domain_counts": {
+        "pdot_incomplete": 450,
+        "sdg_incomplete": 450
+      },
+      "validation_issues": {}
+    },
+    "B": {
+      "rows": 450,
+      "complete": 0,
+      "not_started": 450,
+      "in_progress": 0,
+      "invalid": 0,
+      "domain_counts": {
+        "pdot_incomplete": 450,
+        "sdg_incomplete": 450
+      },
+      "validation_issues": {}
+    }
+  },
+  "both_coders_complete": 0,
+  "all_annotations_finished": false,
+  "model_validation_or_intercoder_agreement_computed": false,
+  "notes": [
+    "Rows are counted complete only after both domains and evidence fields are filled.",
+    "Blank no-match flags are treated as 'no'; use 'yes' only for an explicit no-match judgment.",
+    "Codes must be 'ODS 1' through 'ODS 17' and 'PDOT 1' through 'PDOT 6'.",
+    "This report does not contain individual annotations, identifiers or textual evidence.",
+    "Do not calculate model precision or Cohen's kappa before both independent coding sheets are frozen."
+  ]
+}
