@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "experiment": "E5_document_pooling_sensitivity",
+  "status": "completed_small_gpu_geometry_study",
+  "n_documents": 12,
+  "population_rows": 7830,
+  "row_alignment": {
+    "04_vs_05_embedding_index": true,
+    "04_vs_06": true,
+    "04_vs_07": true
+  },
+  "total_windows_processed": 1199,
+  "total_fulltext_tokens": 401623,
+  "gpu_seconds_excluding_model_load": 14.085,
+  "peak_torch_allocated_gib": 1.06,
+  "baseline_reproduction_cosine": {
+    "n": 12,
+    "min": 1.0,
+    "p05": 1.0,
+    "median": 1.0,
+    "p95": 1.0,
+    "max": 1.0,
+    "mean": 1.0
+  },
+  "model": "intfloat/multilingual-e5-large",
+  "chunk_content_tokens": 384,
+  "overlap_tokens": 48,
+  "pooling": {
+    "all_weighted": "all normalized chunk vectors weighted by newly covered tokens",
+    "middle_80pct": "exclude first/last 10% of window positions; exploratory content-trim proxy",
+    "first_25pct": "first quarter of window positions; deliberately partial-content diagnostic",
+    "equal_three_regions": "length-weighted unit mean within each of three document-position regions, equal region weights then L2 normalization"
+  },
+  "geometry": {
+    "all_weighted": {
+      "same_thesis_cosine_vs_legacy": {
+        "n": 12,
+        "min": 0.924459,
+        "p05": 0.926761,
+        "median": 0.939147,
+        "p95": 0.955545,
+        "max": 0.95706,
+        "mean": 0.939537
+      },
+      "cross_thesis_pairwise_cosine": {
+        "n": 66,
+        "min": 0.894752,
+        "p05": 0.90122,
+        "median": 0.930609,
+        "p95": 0.959443,
+        "max": 0.973344,
+        "mean": 0.931303
+      },
+      "pairwise_rank_spearman_vs_legacy": 0.384407,
+      "pairwise_rank_spearman_vs_all_weighted": 1.0
+    },
+    "middle_80pct": {
+      "same_thesis_cosine_vs_legacy": {
+        "n": 12,
+        "min": 0.919901,
+        "p05": 0.921452,
+        "median": 0.934525,
+        "p95": 0.95121,
+        "max": 0.954417,
+        "mean": 0.934699
+      },
+      "cross_thesis_pairwise_cosine": {
+        "n": 66,
+        "min": 0.891944,
+        "p05": 0.896871,
+        "median": 0.926122,
+        "p95": 0.954836,
+        "max": 0.970493,
+        "mean": 0.927293
+      },
+      "pairwise_rank_spearman_vs_legacy": 0.374512,
+      "pairwise_rank_spearman_vs_all_weighted": 0.989437
+    },
+    "first_25pct": {
+      "same_thesis_cosine_vs_legacy": {
+        "n": 12,
+        "min": 0.927639,
+        "p05": 0.933122,
+        "median": 0.943013,
+        "p95": 0.963664,
+        "max": 0.967649,
+        "mean": 0.946955
+      },
+      "cross_thesis_pairwise_cosine": {
+        "n": 66,
+        "min": 0.87643,
+        "p05": 0.889885,
+        "median": 0.91813,
+        "p95": 0.955017,
+        "max": 0.962774,
+        "mean": 0.919654
+      },
+      "pairwise_rank_spearman_vs_legacy": 0.389959,
+      "pairwise_rank_spearman_vs_all_weighted": 0.883937
+    },
+    "equal_three_regions": {
+      "same_thesis_cosine_vs_legacy": {
+        "n": 12,
+        "min": 0.924499,
+        "p05": 0.926703,
+        "median": 0.939216,
+        "p95": 0.955405,
+        "max": 0.956953,
+        "mean": 0.939519
+      },
+      "cross_thesis_pairwise_cosine": {
+        "n": 66,
+        "min": 0.894903,
+        "p05": 0.901614,
+        "median": 0.930846,
+        "p95": 0.959481,
+        "max": 0.973457,
+        "mean": 0.931396
+      },
+      "pairwise_rank_spearman_vs_legacy": 0.38378,
+      "pairwise_rank_spearman_vs_all_weighted": 0.999791
+    }
+  },
+  "notes": [
+    "Only aggregate statistics reported. No thesis IDs, texts, row indices, or private embeddings exported.",
+    "Every variant shares identical first-stage E5 chunk embeddings.",
+    "Cosine magnitude or separation does not establish scientific validity or higher classification accuracy.",
+    "Small length-quantile pilot is not an independent population evaluation sample.",
+    "The first-quarter proxy is NOT a complete-document semantic representation.",
+    "Expert-coded SDG and PDOT reference labels are needed to compare classification metrics."
+  ]
+}
