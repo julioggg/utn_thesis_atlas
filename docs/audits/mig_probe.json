@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "visible_mig_count_in_nvidia_smi": 2,
+  "per_instance": [
+    {
+      "mig_slot": 0,
+      "cuda_available": true,
+      "gpu_name": "NVIDIA A100-SXM4-40GB MIG 2g.10gb",
+      "sum_test": 8.0,
+      "torch_cuda_version": "12.1",
+      "torch_version": "2.5.1+cu121",
+      "visible_cuda_devices": 1,
+      "visible_memory_gib": 9.62
+    },
+    {
+      "mig_slot": 1,
+      "cuda_available": true,
+      "gpu_name": "NVIDIA A100-SXM4-40GB MIG 2g.10gb",
+      "sum_test": 8.0,
+      "torch_cuda_version": "12.1",
+      "torch_version": "2.5.1+cu121",
+      "visible_cuda_devices": 1,
+      "visible_memory_gib": 9.62
+    }
+  ],
+  "uuid_values_redacted": true,
+  "note": "One separate child process per MIG; a single R535 CUDA process cannot enumerate two MIG compute instances."
+}
