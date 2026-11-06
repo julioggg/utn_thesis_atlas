@@ -64,6 +64,13 @@ def choose_indices(lengths, n):
     return choices
 
 
+def shard_indices(selection, shard_index, shard_count):
+    """Disjoint deterministic split of a COMMON pilot selection across workers."""
+    if shard_count < 1 or not 0 <= shard_index < shard_count:
+        raise ValueError("Require 0 <= shard_index < shard_count")
+    return list(selection[shard_index::shard_count])
+
+
 def extract_rows(parquet_file, indices):
     """Stream only full_text; avoid loading the whole 600MB corpus in RAM."""
     import pyarrow.parquet as pq
@@ -174,7 +181,10 @@ def pilot(args):
 
     # Only metadata lengths are loaded for selection.
     lengths = pd.read_parquet(corpus, columns=["fulltext_chars"])["fulltext_chars"]
-    indices = choose_indices(lengths, args.documents)
+    selected = choose_indices(lengths, args.documents)
+    indices = shard_indices(selected, args.shard_index, args.shard_count)
+    if not indices:
+        raise ValueError("Empty GPU shard; reduce --shard-count or increase --documents")
     texts = extract_rows(corpus, indices)
     tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=True,
                                               local_files_only=args.local_files_only)
@@ -237,13 +247,16 @@ def pilot(args):
             "pooling": "length-weighted mean of unit-normalized chunk embeddings, then unit normalize document",
             "selection": "fixed quantiles of extracted full-text character lengths",
         },
-        "documents_requested": args.documents, "documents_processed": len(processed),
-        "documents_skipped": args.documents - len(processed),
+        "selection_total_documents": args.documents,
+        "shard_index": args.shard_index, "shard_count": args.shard_count,
+        "documents_requested": len(indices), "documents_processed": len(processed),
+        "documents_skipped": len(indices) - len(processed),
         "skipped_reasons": {key: sum(x.get("reason") == key for x in docs)
                             for key in ("empty_fulltext", "max_chunks_safety_limit")},
         "processed_tokens": sum(x["tokens"] for x in processed),
         "processed_chunks": int(total_chunks),
         "elapsed_seconds_including_tokenization": round(elapsed, 3),
+        "timing_excludes_model_initialization": True,
         "chunks_per_second": round(total_chunks / max(elapsed, 1e-9), 3),
         "mean_chunks_per_processed_document": round(total_chunks / max(len(processed), 1), 3),
         "notes": [
@@ -261,7 +274,10 @@ def main():
     p.add_argument("--project-root", type=Path, required=True)
     p.add_argument("--workspace", type=Path, default=Path.cwd())
     p.add_argument("--model", default="intfloat/multilingual-e5-large")
-    p.add_argument("--documents", type=int, default=3)
+    p.add_argument("--documents", type=int, default=3,
+                   help="Total distinct documents across ALL shards")
+    p.add_argument("--shard-count", type=int, default=1)
+    p.add_argument("--shard-index", type=int, default=0)
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--chunk-tokens", type=int, default=384)
     p.add_argument("--overlap", type=int, default=48)
@@ -279,6 +295,8 @@ def main():
     args = p.parse_args()
     if args.documents < 1 or args.batch_size < 1 or args.max_chunks < 1:
         p.error("Require positive --documents, --batch-size, --max-chunks")
+    if args.shard_count < 1 or args.documents < args.shard_count or not 0 <= args.shard_index < args.shard_count:
+        p.error("Require --documents >= --shard-count >= 1 and valid --shard-index")
     if args.overlap < 0 or args.overlap >= args.chunk_tokens:
         p.error("Require chunk_tokens > overlap >= 0")
     report = pilot(args)
