@@ -137,7 +137,8 @@ def comparison(root, workspace, run_id):
     old_pairs = old_sim[upper]
     new_pairs = new_sim[upper]
     # Spearman is Pearson correlation of average ranks; avoid requiring SciPy on HPC.
-    rank_spearman = float(pd.Series(old_pairs).rank().corr(\n        pd.Series(new_pairs).rank(), method="pearson"))
+    rank_spearman = float(pd.Series(old_pairs).rank().corr(
+        pd.Series(new_pairs).rank(), method="pearson"))
     return {
         "schema_version": 1,
         "experiment": "original_vs_fulltext_e5_representation_change",
