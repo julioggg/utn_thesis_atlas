@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "experiment": "two_coder_blinded_validation_design",
+  "status": "prepared_unannotated",
+  "population_rows": 7830,
+  "selected_theses": 450,
+  "population_random_theses": 120,
+  "targeted_enrichment_theses": 330,
+  "random_seed": 42,
+  "original_prediction_labels_used_only_for_sampling": true,
+  "coder_sheets_include_model_predictions": false,
+  "n_original_ods_strata": 17,
+  "minimum_targeted_per_class": 10,
+  "maximum_targeted_per_class": 41,
+  "n_coder_sheets": 2,
+  "selected_predicted_pdot_labels": 6,
+  "selected_faculty_strata": 7,
+  "requirements": [
+    "Two human coders must independently inspect source theses without access to model predictions.",
+    "Provide a fixed 17-SDG and six-PDOT source-verified codebook, a no-alignment option and adjudication protocol.",
+    "Determine valid document access and ethics permissions before distributing any private coder sheets.",
+    "The 120-case probability subsample supports population estimates; oversampled cases need explicit design-aware analysis.",
+    "Do not derive precision, recall, F1 or Cohen kappa before human annotations have been completed.",
+    "Private sample master and coder sheets contain source identifiers; do not upload them to public GitHub."
+  ]
+}
