@@ -122,6 +122,9 @@ def worker(args):
     model=AutoModel.from_pretrained(model_id,dtype=torch.float16,
                                    local_files_only=True,use_safetensors=True).to("cuda")
     model.eval()
+    actual_revision=getattr(model.config,"_commit_hash",None)
+    if not actual_revision or actual_revision!=manifest["model_hf_revision_sha"]:
+        raise RuntimeError("HF model revision not verifiable or differs from frozen manifest")
     torch.cuda.reset_peak_memory_stats()
     out=Path(args.private_run_dir)/f"mig_slot{slot}"
     out.mkdir(parents=True,exist_ok=True)
@@ -291,8 +294,14 @@ def orchestrate(args):
     final_path=private/"fulltext_e5_large_7830_PRIVATE.npy"
     if final_path.exists():
         raise FileExistsError("Final private 7830-row matrix already exists; do not rerun with same ID")
+    from transformers import AutoConfig
+    model_revision=getattr(AutoConfig.from_pretrained(
+        MODEL,local_files_only=True),"_commit_hash",None)
+    if not model_revision:
+        raise RuntimeError("Cannot verify cached E5 model revision; freeze source before full-corpus run")
     manifest={
         "schema_version":1,"original_root":str(root),
+        "model_hf_revision_sha":model_revision,
         "original_04_parquet_sha256":sha256_file(original),
         "code_fingerprints":{
             "full_corpus_script":sha256_file(Path(__file__)),
