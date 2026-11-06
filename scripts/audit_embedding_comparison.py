@@ -136,7 +136,8 @@ def comparison(root, workspace, run_id):
     upper = np.triu_indices(len(indices), k=1)
     old_pairs = old_sim[upper]
     new_pairs = new_sim[upper]
-    rank_spearman = float(pd.Series(old_pairs).corr(pd.Series(new_pairs), method="spearman"))
+    # Spearman is Pearson correlation of average ranks; avoid requiring SciPy on HPC.
+    rank_spearman = float(pd.Series(old_pairs).rank().corr(\n        pd.Series(new_pairs).rank(), method="pearson"))
     return {
         "schema_version": 1,
         "experiment": "original_vs_fulltext_e5_representation_change",
