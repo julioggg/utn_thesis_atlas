@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "experiment": "original_vs_fulltext_e5_representation_change",
+  "source": "original 05_embeddings.npy and private disjoint two-MIG pilot vectors",
+  "n_original_theses": 7830,
+  "alignment_verified": {
+    "04_vs_05_embedding_index": true,
+    "04_vs_06": true,
+    "04_vs_07": true
+  },
+  "n_pilot_theses": 12,
+  "per_worker_private_vector_counts": [
+    6,
+    6
+  ],
+  "new_vector_norms": {
+    "n": 12,
+    "min": 1.0,
+    "p05": 1.0,
+    "median": 1.0,
+    "p95": 1.0,
+    "max": 1.0,
+    "mean": 1.0
+  },
+  "original_vector_norms": {
+    "n": 12,
+    "min": 1.0,
+    "p05": 1.0,
+    "median": 1.0,
+    "p95": 1.0,
+    "max": 1.0,
+    "mean": 1.0
+  },
+  "original_new_same_thesis_cosine": {
+    "n": 12,
+    "min": 0.924459,
+    "p05": 0.926761,
+    "median": 0.939147,
+    "p95": 0.955545,
+    "max": 0.95706,
+    "mean": 0.939537
+  },
+  "pilot_pairwise_distances": {
+    "n_unique_pairs": 66,
+    "old_cosine": {
+      "n": 66,
+      "min": 0.811937,
+      "p05": 0.816238,
+      "median": 0.843875,
+      "p95": 0.872374,
+      "max": 0.879488,
+      "mean": 0.844716
+    },
+    "new_cosine": {
+      "n": 66,
+      "min": 0.894752,
+      "p05": 0.90122,
+      "median": 0.930609,
+      "p95": 0.959443,
+      "max": 0.973344,
+      "mean": 0.931303
+    },
+    "pairwise_spearman": 0.384407
+  },
+  "notes": [
+    "Cosine drift is a representation change, NOT evidence of improved accuracy.",
+    "These 12 thesis embeddings are from the length-quantile pilot, NOT an independent evaluation sample.",
+    "No thesis titles, author names, handles, indices, texts or vectors are exported.",
+    "Row-position comparisons are permitted only after 04/06/07 handle-order equality checks.",
+    "Human-adjudicated labels are still required for SDG and PDOT precision, recall and F1."
+  ]
+}

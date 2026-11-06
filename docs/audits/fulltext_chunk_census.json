@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "complete_fulltext_token_window_census",
+  "population_rows": 7830,
+  "fulltext_source": "data/processed/04_clean_corpus.parquet:full_text",
+  "model_tokenizer": "intfloat/multilingual-e5-large",
+  "window_configuration": {
+    "content_tokens": 384,
+    "overlap_tokens": 48,
+    "prefix_tokens": 2,
+    "special_tokens": 2,
+    "maximum_input_tokens": 512
+  },
+  "empty_fulltexts": 0,
+  "total_fulltext_tokens": 286050084,
+  "total_nonempty_windows": 854145,
+  "fulltext_token_counts": {
+    "n": 7830,
+    "min": 470.0,
+    "p05": 17887.15,
+    "median": 31745.0,
+    "p95": 68853.54999999999,
+    "max": 416550.0,
+    "mean": 36532.57777777778
+  },
+  "window_counts_per_thesis": {
+    "n": 7830,
+    "min": 2.0,
+    "p05": 54.0,
+    "median": 95.0,
+    "p95": 205.0,
+    "max": 1240.0,
+    "mean": 109.08620689655173
+  },
+  "windows_per_thesis_bins": {
+    "0-0": 0,
+    "1-100": 4380,
+    "101-200": 3017,
+    "201-400": 391,
+    "401-800": 34,
+    "801-1200": 7,
+    "1201-2400": 1,
+    "2401+": 0
+  },
+  "theses_over_400_windows": 42,
+  "theses_over_800_windows": 8,
+  "theses_over_1200_windows": 1,
+  "elapsed_cpu_seconds": 882.893,
+  "limitations": [
+    "This is exact window arithmetic over extracted full_text, not a GPU throughput estimate.",
+    "No model inference, deduplication, boilerplate removal, semantic validity check or expert validation was performed.",
+    "Full-text quality and inclusion of bibliography, appendices, OCR artifacts and duplicates require separate study.",
+    "All texts and record-level numbers remain in CEDIA. Only aggregate counts are exported."
+  ]
+}
