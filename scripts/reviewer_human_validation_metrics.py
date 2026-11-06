@@ -146,7 +146,7 @@ def evaluate(args):
     root=args.project_root.expanduser().resolve()
     workspace=Path(__file__).resolve().parent.parent
     private=args.private_dir.expanduser().resolve()
-    report_progress, _ = inspect_files(private)
+    report_progress = inspect_files(private)
     # inspect_files returns report and a cross-check count; verify full completion.
     if not report_progress["all_annotations_finished"]:
         raise RuntimeError("Both 450-thesis coder worksheets are NOT finished: cannot compute validation.")
@@ -229,12 +229,18 @@ def evaluate(args):
                     raise ValueError("Descriptor score rows do not match original corpus")
                 matrix=score_all[rows]
                 truth=labels_from_coder(adjudicated,domain)
-                names=[f"ODS {i}" for i in range(1,18)] if domain=="ods" else list(PDOT_ID.values())
-                # The manifest uses original source label order, which for PDOT
-                # is NOT guaranteed to match this hard-coded list. Require an
-                # explicit taxonomy order below to avoid silently wrong labels.
-                if domain=="pdot":
-                    raise RuntimeError("PDOT descriptor score order requires verified manifest mapping. Refusing inference.")
+                from reviewer_descriptor_sensitivity import load_verified_manifest
+                manifest_path=args.descriptor_manifest.expanduser().resolve()
+                if not manifest_path.is_relative_to((workspace/"data").resolve()):
+                    raise ValueError("Descriptor manifest must remain private")
+                manifest=load_verified_manifest(manifest_path)
+                original_names=[x["id"] for x in manifest["taxonomies"][domain]]
+                names=(original_names if domain=="ods"
+                       else [PDOT_ID.get(x,"") for x in original_names])
+                if not all(names) or len(set(names))!=len(names):
+                    raise ValueError("Descriptor category order is unverified or invalid")
+                if matrix.shape[1]!=len(names):
+                    raise ValueError("Descriptor score column count differs from frozen manifest")
                 (threshold,margin),train_f1=thresholds_from_calibration(
                     matrix[enrich_mask],truth[enrich_mask],names
                 )
@@ -268,6 +274,8 @@ def main():
                    default=Path("data/revision_private/validation"))
     p.add_argument("--adjudicated",type=Path)
     p.add_argument("--descriptor-scores",type=Path)
+    p.add_argument("--descriptor-manifest",type=Path,
+                   default=Path("data/revision_private/descriptor_inventory/verified_descriptors_PRIVATE.json"))
     p.add_argument("--coders-frozen",action="store_true",required=True)
     p.add_argument("--private-metrics-dir",type=Path,
                    default=Path("data/revision_private/reviewer_validation_metrics"))
