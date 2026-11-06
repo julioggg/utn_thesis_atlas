@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "completed_two_mig_pilot",
+  "run_id": "two_mig_pilot_v1",
+  "model": "intfloat/multilingual-e5-large",
+  "selection_total_documents": 12,
+  "documents_processed": 12,
+  "documents_skipped": 0,
+  "total_processed_chunks": 1199,
+  "total_processed_tokens": 401623,
+  "wall_time_including_model_loading_seconds": 22.626,
+  "combined_chunks_per_wall_second_including_load": 52.992,
+  "per_mig": [
+    {
+      "mig_slot": 0,
+      "documents_requested": 6,
+      "documents_processed": 6,
+      "documents_skipped": 0,
+      "processed_chunks": 579,
+      "elapsed_seconds_excluding_model_load": 6.892,
+      "chunks_per_second_excluding_model_load": 84.014,
+      "peak_torch_allocated_gib": 1.06,
+      "visible_gpu_memory_gib": 9.62
+    },
+    {
+      "mig_slot": 1,
+      "documents_requested": 6,
+      "documents_processed": 6,
+      "documents_skipped": 0,
+      "processed_chunks": 620,
+      "elapsed_seconds_excluding_model_load": 7.327,
+      "chunks_per_second_excluding_model_load": 84.622,
+      "peak_torch_allocated_gib": 1.06,
+      "visible_gpu_memory_gib": 9.62
+    }
+  ],
+  "method": {
+    "sharding": "one common length-quantile sample split into two disjoint subsets",
+    "chunk_tokens": 384,
+    "overlap": 48,
+    "batch_size": 1,
+    "max_chunks_per_document": 400,
+    "per_process_model": "separate E5 instance, one CUDA-visible MIG",
+    "precision": "fp16"
+  },
+  "limitations": [
+    "Performance on this small pilot is not proof of full-dataset throughput or classification quality.",
+    "Wall-time includes two model loads; per-worker execution excludes model loading.",
+    "PyTorch peak allocated excludes CUDA driver/context and other processes' GPU memory.",
+    "No original thesis text, row-level vectors or MIG UUIDs are written to public reports.",
+    "Human expert evaluation is required to validate SDG/PDOT classifications."
+  ]
+}

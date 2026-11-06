@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "pilot_only",
+  "model": "intfloat/multilingual-e5-large",
+  "hardware": {
+    "device": "cuda",
+    "gpu_model": "NVIDIA A100-SXM4-40GB MIG 2g.10gb",
+    "peak_allocated_gib": 1.06,
+    "visible_gpu_memory_gib": 9.62
+  },
+  "software": {
+    "torch": "2.5.1+cu121",
+    "transformers": "4.57.6",
+    "precision": "fp16"
+  },
+  "method": {
+    "model_limit": 512,
+    "content_tokens_per_window": 384,
+    "overlap_tokens": 48,
+    "prefix": "passage: ",
+    "special_tokens": 2,
+    "pooling": "length-weighted mean of unit-normalized chunk embeddings, then unit normalize document",
+    "selection": "fixed quantiles of extracted full-text character lengths"
+  },
+  "selection_total_documents": 12,
+  "shard_index": 1,
+  "shard_count": 2,
+  "documents_requested": 6,
+  "documents_processed": 6,
+  "documents_skipped": 0,
+  "skipped_reasons": {
+    "empty_fulltext": 0,
+    "max_chunks_safety_limit": 0
+  },
+  "processed_tokens": 207837,
+  "processed_chunks": 620,
+  "elapsed_seconds_including_tokenization": 7.327,
+  "timing_excludes_model_initialization": true,
+  "chunks_per_second": 84.622,
+  "mean_chunks_per_processed_document": 103.333,
+  "notes": [
+    "No expert label validation, classifier evaluation, or legacy-vs-new comparison performed.",
+    "This is a small pilot, not a representative full-corpus throughput benchmark.",
+    "Private row indices and embedding vectors remain under ignored data/ on CEDIA.",
+    "No source document, handle, advisor or full text is exported in this aggregate JSON."
+  ]
+}
