@@ -13,12 +13,12 @@ class StabilitySamplingTests(unittest.TestCase):
         df = pd.DataFrame({
             "faculty5": ["A"]*150 + ["B"]*50 + [None]*30
         })
-        a, groups = deterministic_sample(df, 100, seed=12)
-        b, _ = deterministic_sample(df, 100, seed=12)
-        self.assertEqual(len(a),100)
-        self.assertEqual(len(set(a.tolist())),100)
+        a, groups = deterministic_sample(df, 200, seed=12)
+        b, _ = deterministic_sample(df, 200, seed=12)
+        self.assertEqual(len(a),200)
+        self.assertEqual(len(set(a.tolist())),200)
         self.assertEqual(a.tolist(),b.tolist())
-        self.assertEqual(sum(groups.values()),100)
+        self.assertEqual(sum(groups.values()),200)
         self.assertIn("[unassigned]",groups)
 
     def test_knn_disallows_self_and_selects_closest(self):
