@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "complete_original_thesis_structure_audit",
+  "source": "04_clean_corpus.parquet:full_text",
+  "population_rows": 7830,
+  "heading_detection": "standalone newline-delimited titles; case-insensitive ES/EN",
+  "late_heading_definition": "at or after 0.55 of extracted text",
+  "n_original_empty_texts": 0,
+  "n_without_linebreaks": 0,
+  "n_with_any_standalone_reference_heading": 7462,
+  "n_with_late_reference_heading_candidate": 7318,
+  "n_with_reference_heading_only_in_early_text": 144,
+  "n_with_appendix_after_late_reference": 5749,
+  "n_with_at_least_four_heading_types": 7464,
+  "document_count_with_each_heading_type": {
+    "abstract": 7464,
+    "appendix": 6451,
+    "conclusions": 7405,
+    "introduction": 5848,
+    "methodology": 4294,
+    "references": 7462,
+    "results": 5304
+  },
+  "late_reference_position_distribution": {
+    "n": 7318,
+    "min": 0.5525404708962823,
+    "p05": 0.7211768407008273,
+    "median": 0.8862028633472303,
+    "p95": 0.9670851814499213,
+    "max": 0.9895747896645466,
+    "mean": 0.8715847121933189
+  },
+  "tail_char_fraction_after_late_reference_heading": {
+    "n": 7318,
+    "min": 0.010425210335453405,
+    "p05": 0.03291481855007868,
+    "median": 0.11379713665276969,
+    "p95": 0.27882315929917256,
+    "max": 0.44745952910371767,
+    "mean": 0.12841528780668104
+  },
+  "total_fulltext_characters": 1291285453,
+  "elapsed_cpu_seconds": 149.832,
+  "limitations": [
+    "Standalone heading regex is a candidate detector, NOT validated section labeling.",
+    "Headings may be absent, mistranscribed or included in a table of contents.",
+    "A late bibliography heading does NOT prove that all trailing text is irrelevant.",
+    "No text removal or E5 retokenization/inference was performed.",
+    "No identifiers, titles, author information, section excerpts or raw document texts are exported.",
+    "Review document-level section boundaries privately before using them in an embedding pipeline."
+  ]
+}
