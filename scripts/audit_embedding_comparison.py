@@ -50,7 +50,23 @@ def check_row_alignment(root):
     aligned_04_07 = bool(np.array_equal(handles[0], handles[2]))
     if not aligned_04_06 or not aligned_04_07:
         raise ValueError("Handle order differs between 04/06/07. Stop rather than compare wrong theses.")
-    return len(handles[0]), {"04_vs_06": aligned_04_06, "04_vs_07": aligned_04_07}
+    # The legacy embedding step writes this row-by-row manifest alongside the .npy file.
+    embedding_index = root / "data/processed/05_embedding_index.csv"
+    if not embedding_index.is_file():
+        raise FileNotFoundError(
+            "05_embedding_index.csv is unavailable; cannot verify the row order of 05_embeddings.npy"
+        )
+    original_index = pd.read_csv(
+        embedding_index, usecols=["handle_id"], dtype={"handle_id": str},
+        keep_default_na=False
+    )["handle_id"].to_numpy()
+    aligned_04_05 = bool(np.array_equal(handles[0], original_index))
+    if not aligned_04_05:
+        raise ValueError("Legacy 05_embedding_index row order does not match original clean corpus")
+    return len(handles[0]), {
+        "04_vs_05_embedding_index": aligned_04_05,
+        "04_vs_06": aligned_04_06, "04_vs_07": aligned_04_07,
+    }
 
 
 def load_pilot_vectors(private_root, run_id, expected_per_slot):
@@ -163,7 +179,7 @@ def main():
     args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n",
                            encoding="utf-8")
     print("Comparison saved:", args.output)
-    print("Positional handle alignment verified across 04/06/07.")
+    print("Positional handle alignment verified across 04/05-index/06/07.")
     print(f"Compared {result['n_pilot_theses']} embeddings, no row-level data exported.")
 
 
