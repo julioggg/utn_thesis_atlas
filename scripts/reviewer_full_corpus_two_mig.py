@@ -222,7 +222,9 @@ def worker(args):
         ),
         "peak_torch_allocated_gib":round(
             float(torch.cuda.max_memory_allocated())/1024**3,3),
-        "model_cached_revision":getattr(model.config,"_commit_hash",None)
+        "model_cached_revision":getattr(model.config,"_commit_hash",None),
+        "software":{"torch":torch.__version__,
+                    "transformers":__import__("transformers").__version__}
     }
     (out/"worker_aggregate_private.json").write_text(
         json.dumps(aggregate,indent=2)+"\n",encoding="utf-8"
@@ -292,6 +294,9 @@ def orchestrate(args):
     manifest={
         "schema_version":1,"original_root":str(root),
         "original_04_parquet_sha256":sha256_file(original),
+        "code_git_commit":subprocess.run(
+            ["git","rev-parse","HEAD"],cwd=workspace,capture_output=True,
+            text=True,check=True).stdout.strip(),
         "population_rows":n,
         "model":MODEL,
         "chunk_tokens":args.chunk_tokens,
@@ -350,12 +355,18 @@ def orchestrate(args):
                 "tokens":summary["total_content_tokens"],
                 "peak_torch_allocated_gib":summary["peak_torch_allocated_gib"],
                 "model_cached_revision":summary["model_cached_revision"],
+                "software":summary["software"],
             })
+        revisions=[item["model_cached_revision"] for item in worker_summary]
+        if revisions[0]!=revisions[1]:
+            raise RuntimeError("MIG workers resolved DIFFERENT model revisions; do not publish results")
         return {
             "schema_version":1,
             "status":"complete_full_corpus_fulltext_E5_aggregated_candidate",
             "population":n,
             "source_corpus_sha256":manifest["original_04_parquet_sha256"],
+            "analysis_code_git_commit":manifest["code_git_commit"],
+            "model_revision_from_cache":revisions[0],
             "alignment":alignment,
             "model":MODEL,
             "model_input_prefix":"passage: ",
