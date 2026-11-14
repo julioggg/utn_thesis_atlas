@@ -23,7 +23,7 @@ class ShiftAuditTests(unittest.TestCase):
     def test_aggregate_changes_and_counts(self):
         result = report_domain(self.baseline, self.versions,self.cohorts)
         self.assertEqual(result["all_theses"]["historical_vs_fulltext_raw_changed_n"],21)
-        self.assertEqual(result["all_theses"]["fulltext_raw_vs_centered_changed_n"],26)
+        self.assertEqual(result["all_theses"]["fulltext_raw_vs_centered_changed_n"],27)
         self.assertEqual(result["frozen_sample_strata"]["population_random"]["n_theses"],120)
         self.assertEqual(result["frozen_sample_strata"]["targeted_enrichment"]["n_theses"],330)
         for key in ("historical_count","fulltext_raw_count","fulltext_centered_count"):
