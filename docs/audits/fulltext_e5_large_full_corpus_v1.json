@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "status": "complete_full_corpus_fulltext_E5_aggregated_candidate",
+  "run_layout": "two disjoint even/odd row shards, run sequentially on one MIG",
+  "population": 7830,
+  "source_corpus_sha256": "a7c7f7f79aa6b617cd4e1c5e0a8aab34caaa8ac5590e9715373ef3725d75dc74",
+  "analysis_code_fingerprints": {
+    "full_corpus_script": "73a460d4cb9f2e3a98d341ebba1639dc95197d4c5f43c23334de70cc4768afc7",
+    "e5_window_encoder_script": "04471c3a73b64965dcc895769802ce46a05bc8f6116675af5c239f7d437f15cf"
+  },
+  "model_revision_from_cache": "3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3",
+  "alignment": {
+    "04_vs_05_embedding_index": true,
+    "04_vs_06": true,
+    "04_vs_07": true
+  },
+  "model": "intfloat/multilingual-e5-large",
+  "model_input_prefix": "passage: ",
+  "chunk_tokens": 384,
+  "overlap_tokens": 48,
+  "batch_size": 1,
+  "max_chunks_per_document": 1500,
+  "precision": "fp16",
+  "full_corpus_counts": {
+    "documents": 7830,
+    "content_tokens": 286050084,
+    "windows": 854145,
+    "checkpoint_blocks": 490,
+    "private_matrix_rows": 7830,
+    "private_vector_dimension": 1024,
+    "private_matrix_dtype": "float32"
+  },
+  "per_mig": [
+    {
+      "slot": 0,
+      "documents": 3915,
+      "windows": 425311,
+      "tokens": 142434769,
+      "model_cached_revision": "3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3",
+      "software": {
+        "torch": "2.5.1+cu121",
+        "transformers": "4.57.6"
+      },
+      "peak_torch_allocated_gib": 1.06
+    },
+    {
+      "slot": 1,
+      "documents": 3915,
+      "windows": 428834,
+      "tokens": 143615315,
+      "model_cached_revision": "3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3",
+      "software": {
+        "torch": "2.5.1+cu121",
+        "transformers": "4.57.6"
+      },
+      "peak_torch_allocated_gib": 1.06
+    }
+  ],
+  "initial_verified_checkpoint_documents": 2144,
+  "remaining_documents_at_resumption": 5686,
+  "resume_wall_seconds_including_model_load_and_assembly": 7077.08,
+  "validity_warning": "Fulltext vectors are a candidate representation; this does not establish expert SDG/PDOT classification validity.",
+  "privacy_warning": "Matrix, checkpoints and private logs remain under ignored CEDIA revision/data; no row-level data published.",
+  "limitations": [
+    "Resumed existing frozen two-shard run without altering checkpoint provenance.",
+    "No automatic section trimming or new SDG/PDOT classification was performed.",
+    "Expert-labelled accuracy, recall and F1 remain pending.",
+    "Run is sequential on one visible MIG; elapsed time excludes prior sessions."
+  ]
+}
