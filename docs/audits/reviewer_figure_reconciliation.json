@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "original_legacy_tables_reconciled_not_new_validated_analysis",
+  "population_rows": 7830,
+  "table2_ods_totals_sum": 7830,
+  "table2_sdg4_count": 2649,
+  "manuscript_table2_sdg4_stated": 2649,
+  "manuscript_figure3_sdg4_stated": 2668,
+  "manuscript_figure3_sum_stated": 7568,
+  "manuscript_difference_sdg4_bar_minus_table": 19,
+  "legacy_counts_match_reported_table2_sdg4": true,
+  "pdot_axis_sum": 7830,
+  "ten_needs_sum": 7830,
+  "local_needs_count": 10,
+  "advisor_records_with_nonempty_value": 7541,
+  "unique_nonempty_advisor_values": 1091,
+  "figure5_generated_from_distinct_local_need_data": true,
+  "coverage_index_candidate_only": true,
+  "figures_generated_in_private_data": true,
+  "notes": [
+    "Each figure/table is generated from one canonical legacy 07 parquet dataset.",
+    "SDG 4 original assignment count agrees with Table 2, not the erroneous Figure 3 count.",
+    "Figure 5 local-needs figure is distinct from Figure 4 PDOT figure.",
+    "An apparent coverage index formula is not established by numerical resemblance.",
+    "Original 2026 is incomplete; figure counts do not imply complete-year trends.",
+    "Advisor nonmissing records and distinct unstandardized advisor values measure different quantities.",
+    "Figures and tables are exploratory legacy baselines and should not replace final results before the method is frozen.",
+    "No document-level texts, authors, source IDs or embeddings were exported."
+  ],
+  "elapsed_seconds": 4.684
+}

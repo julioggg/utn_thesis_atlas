@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "status": "completed_exploratory_kmeans_umap_stability",
+  "n_original": 7830,
+  "sample_n": 1500,
+  "sample_seed": 42,
+  "sample_stratum_sizes": {
+    "Facultad de Ingeniería en Ciencias Aplicadas": 345,
+    "[unassigned]": 307,
+    "Facultad de Educación Ciencia y Tecnología": 304,
+    "Facultad de Ciencias Administrativas y Económicas": 270,
+    "Facultad de Ciencias de la Salud": 141,
+    "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 133
+  },
+  "embedding_provenance": {
+    "04_vs_05_embedding_index": true,
+    "04_vs_06": true,
+    "04_vs_07": true
+  },
+  "stability": {
+    "model": "MiniBatchKMeans exploratory re-clustering in legacy 1024D E5 space",
+    "not_a_reproduction_of_original_topic_pipeline": true,
+    "candidate_k": [
+      50,
+      75,
+      100
+    ],
+    "seeds": [
+      42,
+      123,
+      456
+    ],
+    "silhouette_sample_size": 600,
+    "by_run": [
+      {
+        "k": 50,
+        "seed": 42,
+        "clusters_nonempty": 50,
+        "cosine_silhouette_sample": -0.008903,
+        "inertia_euclidean": 190.8257
+      },
+      {
+        "k": 50,
+        "seed": 123,
+        "clusters_nonempty": 50,
+        "cosine_silhouette_sample": 0.006236,
+        "inertia_euclidean": 189.5869
+      },
+      {
+        "k": 50,
+        "seed": 456,
+        "clusters_nonempty": 50,
+        "cosine_silhouette_sample": 0.024384,
+        "inertia_euclidean": 189.407
+      },
+      {
+        "k": 75,
+        "seed": 42,
+        "clusters_nonempty": 74,
+        "cosine_silhouette_sample": -0.005433,
+        "inertia_euclidean": 182.7788
+      },
+      {
+        "k": 75,
+        "seed": 123,
+        "clusters_nonempty": 75,
+        "cosine_silhouette_sample": -0.028068,
+        "inertia_euclidean": 184.9077
+      },
+      {
+        "k": 75,
+        "seed": 456,
+        "clusters_nonempty": 75,
+        "cosine_silhouette_sample": -0.021326,
+        "inertia_euclidean": 184.9081
+      },
+      {
+        "k": 100,
+        "seed": 42,
+        "clusters_nonempty": 100,
+        "cosine_silhouette_sample": -0.043476,
+        "inertia_euclidean": 179.2153
+      },
+      {
+        "k": 100,
+        "seed": 123,
+        "clusters_nonempty": 100,
+        "cosine_silhouette_sample": -0.032264,
+        "inertia_euclidean": 180.6955
+      },
+      {
+        "k": 100,
+        "seed": 456,
+        "clusters_nonempty": 99,
+        "cosine_silhouette_sample": -0.025106,
+        "inertia_euclidean": 180.9952
+      }
+    ],
+    "seed_stability_by_k": {
+      "50": {
+        "adjusted_rand_index_pairwise_seeds": [
+          0.431703,
+          0.454134,
+          0.504708
+        ],
+        "mean_ARI": 0.463515,
+        "minimum_ARI": 0.431703
+      },
+      "75": {
+        "adjusted_rand_index_pairwise_seeds": [
+          0.413823,
+          0.430486,
+          0.390503
+        ],
+        "mean_ARI": 0.411604,
+        "minimum_ARI": 0.390503
+      },
+      "100": {
+        "adjusted_rand_index_pairwise_seeds": [
+          0.380933,
+          0.427834,
+          0.428931
+        ],
+        "mean_ARI": 0.412566,
+        "minimum_ARI": 0.380933
+      }
+    }
+  },
+  "umap": {
+    "umap_version": "0.5.12",
+    "seeds": [
+      42,
+      123
+    ],
+    "n_neighbors": 15,
+    "min_dist": 0.1,
+    "trustworthiness_cosine_original_to_2d": [
+      0.940379,
+      0.943039
+    ],
+    "mean_neighborhood_recall_at_k_between_umap_seeds": [
+      0.695022
+    ],
+    "note": "Visualization stability only. UMAP area and convex hull overlap have no rigorous original-space area interpretation."
+  },
+  "limitations": [
+    "The KMeans clustering here is an alternative sensitivity analysis, NOT a replay of the original topic-extraction algorithm.",
+    "UMAP two-dimensional distances, hulls and areas must not be used as original-space overlap evidence.",
+    "The chosen k still requires a scientifically meaningful topic interpretability analysis.",
+    "The sampling/embedding scheme is the original 512-token limited E5; fulltext perturbations need a separate computation.",
+    "No per-thesis coordinates, raw document data or classification labels are published."
+  ],
+  "elapsed_seconds": 114.562
+}

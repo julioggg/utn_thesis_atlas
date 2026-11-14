@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "private_descriptor_manifest_template_created",
+  "rows": 7830,
+  "taxonomy_sizes": {
+    "ods": 17,
+    "pdot": 6,
+    "need": 10
+  },
+  "original_descriptors_source_verified": false,
+  "reworded_descriptors_prepared": false,
+  "current_classifier_multi_label_accuracy_known": false,
+  "notes": [
+    "The private descriptor manifest is empty by design; do not run sensitivity until exact original strings and sources are verified.",
+    "No descriptor text or document-level data were published."
+  ]
+}

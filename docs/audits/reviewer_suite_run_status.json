@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "status": "computational_suite_attempted_not_human_validation",
+  "stages_requested": [
+    "stats",
+    "geometry",
+    "stability",
+    "figures",
+    "inventory",
+    "template",
+    "alternate",
+    "descriptors",
+    "keywords"
+  ],
+  "stage_results": [
+    {
+      "stage": "stats",
+      "status": "completed_aggregate_saved",
+      "elapsed_seconds": 12.843,
+      "report_file": "reviewer_stage1_statistics.json"
+    },
+    {
+      "stage": "geometry",
+      "status": "completed_aggregate_saved",
+      "elapsed_seconds": 1.376,
+      "report_file": "reviewer_stage2_geometry_trends.json"
+    },
+    {
+      "stage": "stability",
+      "status": "completed_aggregate_saved",
+      "elapsed_seconds": 116.23,
+      "report_file": "reviewer_stage3_stability.json"
+    },
+    {
+      "stage": "figures",
+      "status": "completed_aggregate_saved",
+      "elapsed_seconds": 5.734,
+      "report_file": "reviewer_figure_reconciliation.json"
+    },
+    {
+      "stage": "inventory",
+      "status": "completed_aggregate_saved",
+      "elapsed_seconds": 0.271,
+      "report_file": "descriptor_source_inventory.json"
+    },
+    {
+      "stage": "template",
+      "status": "completed_aggregate_saved",
+      "elapsed_seconds": 0.916,
+      "report_file": "descriptor_template_status.json"
+    },
+    {
+      "stage": "alternate",
+      "status": "completed_aggregate_saved",
+      "elapsed_seconds": 275.261,
+      "report_file": "reviewer_alternate_encoder_pilot.json"
+    },
+    {
+      "stage": "descriptors",
+      "status": "blocked_pending_verified_descriptor_manifest",
+      "report_file": null
+    },
+    {
+      "stage": "keywords",
+      "status": "blocked_pending_verified_descriptor_manifest",
+      "report_file": null
+    }
+  ],
+  "n_success": 7,
+  "n_blocked": 2,
+  "n_failed": 0,
+  "private_logs_only": true,
+  "human_annotations_or_F1_generated": false,
+  "notes": [
+    "Private logs and all row-level outputs stay under ignored CEDIA data/.",
+    "Review each aggregate report manually before publishing to public GitHub.",
+    "This suite analyzes the original embeddings and prepared alternatives; not yet an approved final 7830-thesis fulltext regeneration.",
+    "Descriptor sensitivity and lexical baseline remain blocked without the original source-verified taxonomies.",
+    "Any failure must be investigated from private logs; do not report failed stages as completed."
+  ]
+}

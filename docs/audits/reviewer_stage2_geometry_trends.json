@@ -1,0 +1,394 @@
+{
+  "schema_version": 1,
+  "status": "original_embedding_geometry_and_topic_trends",
+  "source_model": "original truncated E5 1024D; NOT fulltext or a human-labeled truth",
+  "n_source_records": 7830,
+  "n_five_faculty_rows": 6226,
+  "faculty_resolution": {
+    "strict_known_five_faculty_rows": 6038,
+    "unknown_or_misc_input_rows": 1792,
+    "career_mappings_eligible": 67,
+    "career_imputed_rows": 188,
+    "unresolved_rows": 1604,
+    "minimum_career_support": 10,
+    "minimum_mapping_purity": 0.98,
+    "rule": "strict learned mapping from explicitly labeled real-faculty rows",
+    "caution": "Imputed faculty is not an official administrative record; report sensitivity excluding it."
+  },
+  "embedding_provenance": {
+    "04_vs_05_embedding_index": true,
+    "04_vs_06": true,
+    "04_vs_07": true
+  },
+  "centroid_cosine_distances": {
+    "Facultad de Ingeniería en Ciencias Aplicadas": {
+      "Facultad de Ingeniería en Ciencias Aplicadas": 0.0,
+      "Facultad de Educación Ciencia y Tecnología": 0.021763,
+      "Facultad de Ciencias Administrativas y Económicas": 0.016607,
+      "Facultad de Ciencias de la Salud": 0.028548,
+      "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.019839
+    },
+    "Facultad de Educación Ciencia y Tecnología": {
+      "Facultad de Ingeniería en Ciencias Aplicadas": 0.021763,
+      "Facultad de Educación Ciencia y Tecnología": 0.0,
+      "Facultad de Ciencias Administrativas y Económicas": 0.018494,
+      "Facultad de Ciencias de la Salud": 0.024526,
+      "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.033914
+    },
+    "Facultad de Ciencias Administrativas y Económicas": {
+      "Facultad de Ingeniería en Ciencias Aplicadas": 0.016607,
+      "Facultad de Educación Ciencia y Tecnología": 0.018494,
+      "Facultad de Ciencias Administrativas y Económicas": 0.0,
+      "Facultad de Ciencias de la Salud": 0.023944,
+      "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.023695
+    },
+    "Facultad de Ciencias de la Salud": {
+      "Facultad de Ingeniería en Ciencias Aplicadas": 0.028548,
+      "Facultad de Educación Ciencia y Tecnología": 0.024526,
+      "Facultad de Ciencias Administrativas y Económicas": 0.023944,
+      "Facultad de Ciencias de la Salud": 0.0,
+      "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.032008
+    },
+    "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": {
+      "Facultad de Ingeniería en Ciencias Aplicadas": 0.019839,
+      "Facultad de Educación Ciencia y Tecnología": 0.033914,
+      "Facultad de Ciencias Administrativas y Económicas": 0.023695,
+      "Facultad de Ciencias de la Salud": 0.032008,
+      "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.0
+    }
+  },
+  "balanced_original_space_knn": {
+    "selection": "equal-size sample within each of five real faculty groups",
+    "seed": 42,
+    "sampling_without_replacement": true,
+    "per_faculty_n": 400,
+    "balanced_n": 2000,
+    "random_group_mix_expectation_exact": 0.8004,
+    "k_statistics": {
+      "5": {
+        "fraction_neighbors_other_faculty": 0.0603,
+        "mean_other_faculty_neighborhood_fraction_by_faculty": {
+          "Facultad de Ingeniería en Ciencias Aplicadas": 0.0715,
+          "Facultad de Educación Ciencia y Tecnología": 0.0805,
+          "Facultad de Ciencias Administrativas y Económicas": 0.0755,
+          "Facultad de Ciencias de la Salud": 0.0215,
+          "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.0525
+        }
+      },
+      "15": {
+        "fraction_neighbors_other_faculty": 0.090533,
+        "mean_other_faculty_neighborhood_fraction_by_faculty": {
+          "Facultad de Ingeniería en Ciencias Aplicadas": 0.129,
+          "Facultad de Educación Ciencia y Tecnología": 0.1145,
+          "Facultad de Ciencias Administrativas y Económicas": 0.107667,
+          "Facultad de Ciencias de la Salud": 0.029667,
+          "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.071833
+        }
+      },
+      "30": {
+        "fraction_neighbors_other_faculty": 0.120883,
+        "mean_other_faculty_neighborhood_fraction_by_faculty": {
+          "Facultad de Ingeniería en Ciencias Aplicadas": 0.176417,
+          "Facultad de Educación Ciencia y Tecnología": 0.141333,
+          "Facultad de Ciencias Administrativas y Económicas": 0.152417,
+          "Facultad de Ciencias de la Salud": 0.039583,
+          "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.094667
+        }
+      }
+    },
+    "limitation": "Neighborhood mixing among faculties reflects embeddings and disciplinary metadata; not proof of cross-faculty research collaboration."
+  },
+  "topic_bridge_candidates": {
+    "min_topic_n": 20,
+    "min_theses_in_at_least_two_faculties": 10,
+    "qualifying_topic_ids": 6,
+    "top_candidates": [
+      {
+        "original_topic_id": "19",
+        "n_five_faculty": 43,
+        "faculties_at_least_10_theses": 2,
+        "shannon_faculty_diversity_normalized": 0.547381,
+        "gini_simpson_faculty_mix": 0.544078,
+        "rao_stirling_faculty_centroid_semantic_diversity": 0.010795,
+        "faculty_counts": {
+          "Facultad de Ingeniería en Ciencias Aplicadas": 0,
+          "Facultad de Educación Ciencia y Tecnología": 21,
+          "Facultad de Ciencias Administrativas y Económicas": 20,
+          "Facultad de Ciencias de la Salud": 1,
+          "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 1
+        }
+      },
+      {
+        "original_topic_id": "15",
+        "n_five_faculty": 160,
+        "faculties_at_least_10_theses": 2,
+        "shannon_faculty_diversity_normalized": 0.349398,
+        "gini_simpson_faculty_mix": 0.375,
+        "rao_stirling_faculty_centroid_semantic_diversity": 0.009197,
+        "faculty_counts": {
+          "Facultad de Ingeniería en Ciencias Aplicadas": 0,
+          "Facultad de Educación Ciencia y Tecnología": 40,
+          "Facultad de Ciencias Administrativas y Económicas": 0,
+          "Facultad de Ciencias de la Salud": 120,
+          "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0
+        }
+      },
+      {
+        "original_topic_id": "26",
+        "n_five_faculty": 53,
+        "faculties_at_least_10_theses": 2,
+        "shannon_faculty_diversity_normalized": 0.425241,
+        "gini_simpson_faculty_mix": 0.491278,
+        "rao_stirling_faculty_centroid_semantic_diversity": 0.008159,
+        "faculty_counts": {
+          "Facultad de Ingeniería en Ciencias Aplicadas": 30,
+          "Facultad de Educación Ciencia y Tecnología": 0,
+          "Facultad de Ciencias Administrativas y Económicas": 23,
+          "Facultad de Ciencias de la Salud": 0,
+          "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0
+        }
+      },
+      {
+        "original_topic_id": "27",
+        "n_five_faculty": 89,
+        "faculties_at_least_10_theses": 2,
+        "shannon_faculty_diversity_normalized": 0.292681,
+        "gini_simpson_faculty_mix": 0.294912,
+        "rao_stirling_faculty_centroid_semantic_diversity": 0.005851,
+        "faculty_counts": {
+          "Facultad de Ingeniería en Ciencias Aplicadas": 73,
+          "Facultad de Educación Ciencia y Tecnología": 0,
+          "Facultad de Ciencias Administrativas y Económicas": 0,
+          "Facultad de Ciencias de la Salud": 0,
+          "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 16
+        }
+      },
+      {
+        "original_topic_id": "5",
+        "n_five_faculty": 163,
+        "faculties_at_least_10_theses": 2,
+        "shannon_faculty_diversity_normalized": 0.272676,
+        "gini_simpson_faculty_mix": 0.268132,
+        "rao_stirling_faculty_centroid_semantic_diversity": 0.004959,
+        "faculty_counts": {
+          "Facultad de Ingeniería en Ciencias Aplicadas": 0,
+          "Facultad de Educación Ciencia y Tecnología": 26,
+          "Facultad de Ciencias Administrativas y Económicas": 137,
+          "Facultad de Ciencias de la Salud": 0,
+          "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0
+        }
+      },
+      {
+        "original_topic_id": "18",
+        "n_five_faculty": 94,
+        "faculties_at_least_10_theses": 2,
+        "shannon_faculty_diversity_normalized": 0.246419,
+        "gini_simpson_faculty_mix": 0.208918,
+        "rao_stirling_faculty_centroid_semantic_diversity": 0.003996,
+        "faculty_counts": {
+          "Facultad de Ingeniería en Ciencias Aplicadas": 0,
+          "Facultad de Educación Ciencia y Tecnología": 10,
+          "Facultad de Ciencias Administrativas y Económicas": 83,
+          "Facultad de Ciencias de la Salud": 0,
+          "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 1
+        }
+      }
+    ],
+    "interpretation": "These are candidate topic IDs with cross-faculty presence, NOT verified scientific bridge topics; identify descriptive keywords and inspect documents before naming them."
+  },
+  "conservative_topic_trends": {
+    "included_years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "2026_excluded_due_to_incomplete_year": true,
+    "annual_counts": {
+      "2021": 1069,
+      "2022": 1463,
+      "2023": 1986,
+      "2024": 1316,
+      "2025": 1299,
+      "2026": 697
+    },
+    "min_recent_period_n": 10,
+    "top_growth_candidate_topic_ids": [
+      {
+        "original_topic_id": "16",
+        "2021_22_n": 1,
+        "2024_25_n": 57,
+        "2021_22_share": 0.0003949,
+        "2024_25_share": 0.0217973,
+        "smoothed_share_ratio": 37.1171
+      },
+      {
+        "original_topic_id": "43",
+        "2021_22_n": 1,
+        "2024_25_n": 55,
+        "2021_22_share": 0.0003949,
+        "2024_25_share": 0.0210325,
+        "smoothed_share_ratio": 35.82607
+      },
+      {
+        "original_topic_id": "24",
+        "2021_22_n": 1,
+        "2024_25_n": 17,
+        "2021_22_share": 0.0003949,
+        "2024_25_share": 0.006501,
+        "smoothed_share_ratio": 11.29651
+      },
+      {
+        "original_topic_id": "13",
+        "2021_22_n": 6,
+        "2024_25_n": 55,
+        "2021_22_share": 0.0023697,
+        "2024_25_share": 0.0210325,
+        "smoothed_share_ratio": 8.26755
+      },
+      {
+        "original_topic_id": "54",
+        "2021_22_n": 9,
+        "2024_25_n": 76,
+        "2021_22_share": 0.0035545,
+        "2024_25_share": 0.0290631,
+        "smoothed_share_ratio": 7.79714
+      },
+      {
+        "original_topic_id": "44",
+        "2021_22_n": 4,
+        "2024_25_n": 29,
+        "2021_22_share": 0.0015798,
+        "2024_25_share": 0.0110899,
+        "smoothed_share_ratio": 6.34756
+      },
+      {
+        "original_topic_id": "10",
+        "2021_22_n": 16,
+        "2024_25_n": 66,
+        "2021_22_share": 0.0063191,
+        "2024_25_share": 0.025239,
+        "smoothed_share_ratio": 3.90243
+      },
+      {
+        "original_topic_id": "50",
+        "2021_22_n": 18,
+        "2024_25_n": 69,
+        "2021_22_share": 0.007109,
+        "2024_25_share": 0.0263862,
+        "smoothed_share_ratio": 3.63756
+      },
+      {
+        "original_topic_id": "11",
+        "2021_22_n": 6,
+        "2024_25_n": 23,
+        "2021_22_share": 0.0023697,
+        "2024_25_share": 0.0087954,
+        "smoothed_share_ratio": 3.50068
+      },
+      {
+        "original_topic_id": "51",
+        "2021_22_n": 10,
+        "2024_25_n": 37,
+        "2021_22_share": 0.0039494,
+        "2024_25_share": 0.0141491,
+        "smoothed_share_ratio": 3.45811
+      },
+      {
+        "original_topic_id": "56",
+        "2021_22_n": 3,
+        "2024_25_n": 11,
+        "2021_22_share": 0.0011848,
+        "2024_25_share": 0.0042065,
+        "smoothed_share_ratio": 3.18147
+      },
+      {
+        "original_topic_id": "12",
+        "2021_22_n": 12,
+        "2024_25_n": 39,
+        "2021_22_share": 0.0047393,
+        "2024_25_share": 0.014914,
+        "smoothed_share_ratio": 3.05974
+      },
+      {
+        "original_topic_id": "47",
+        "2021_22_n": 10,
+        "2024_25_n": 31,
+        "2021_22_share": 0.0039494,
+        "2024_25_share": 0.0118547,
+        "smoothed_share_ratio": 2.90482
+      },
+      {
+        "original_topic_id": "40",
+        "2021_22_n": 4,
+        "2024_25_n": 12,
+        "2021_22_share": 0.0015798,
+        "2024_25_share": 0.0045889,
+        "smoothed_share_ratio": 2.68964
+      },
+      {
+        "original_topic_id": "48",
+        "2021_22_n": 28,
+        "2024_25_n": 72,
+        "2021_22_share": 0.0110585,
+        "2024_25_share": 0.0275335,
+        "smoothed_share_ratio": 2.46315
+      },
+      {
+        "original_topic_id": "39",
+        "2021_22_n": 9,
+        "2024_25_n": 22,
+        "2021_22_share": 0.0035545,
+        "2024_25_share": 0.008413,
+        "smoothed_share_ratio": 2.29328
+      },
+      {
+        "original_topic_id": "6",
+        "2021_22_n": 18,
+        "2024_25_n": 40,
+        "2021_22_share": 0.007109,
+        "2024_25_share": 0.0152964,
+        "smoothed_share_ratio": 2.11973
+      },
+      {
+        "original_topic_id": "0",
+        "2021_22_n": 9,
+        "2024_25_n": 19,
+        "2021_22_share": 0.0035545,
+        "2024_25_share": 0.0072658,
+        "smoothed_share_ratio": 1.98751
+      },
+      {
+        "original_topic_id": "8",
+        "2021_22_n": 23,
+        "2024_25_n": 45,
+        "2021_22_share": 0.0090837,
+        "2024_25_share": 0.0172084,
+        "smoothed_share_ratio": 1.87474
+      },
+      {
+        "original_topic_id": "60",
+        "2021_22_n": 17,
+        "2024_25_n": 32,
+        "2021_22_share": 0.0067141,
+        "2024_25_share": 0.0122371,
+        "smoothed_share_ratio": 1.79822
+      }
+    ],
+    "label": "relative topic-share growth, not proven novelty or impact",
+    "warnings": [
+      "2026 is excluded from period comparisons.",
+      "Only 2021-22 versus 2024-25 shares are compared; no extrapolation.",
+      "Topic IDs require review of the original 75-topic descriptor table.",
+      "Multiple comparisons and topic-model instability are not corrected by descriptive ratios."
+    ]
+  },
+  "warnings": [
+    "UMAP plot areas and convex hulls are not measures of original-space interdisciplinarity.",
+    "Topic and faculty metadata are original and imperfect; imputation is sensitivity-only.",
+    "Bridge-topic IDs need manual topic keyword descriptions before manuscript interpretation.",
+    "This report does NOT establish scientific originality or sustainability contribution."
+  ],
+  "elapsed_seconds": 0.531
+}

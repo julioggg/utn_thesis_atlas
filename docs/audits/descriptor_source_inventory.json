@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "descriptor_source_inventory_complete_requires_manual_provenance_review",
+  "source_files_examined": 3,
+  "files_with_descriptor_terms": 3,
+  "literal_candidate_objects": 4,
+  "literal_candidates_by_taxonomy_guess": {
+    "pdot": 2,
+    "ods": 1,
+    "need": 1
+  },
+  "candidate_source_term_file_counts": {
+    "ods": 2,
+    "pdot": 2,
+    "need": 2,
+    "necesidad": 1,
+    "sdg": 1
+  },
+  "original_descriptors_verified": false,
+  "official_imbabura_pdot_edition_verified": false,
+  "ten_local_needs_documentary_source_verified": false,
+  "private_candidate_file_created": true,
+  "limitations": [
+    "AST inspection never executes source code and cannot recover dynamically assembled descriptors.",
+    "All candidate literal strings, filenames and file hashes are private to the HPC workspace.",
+    "Manuscript descriptor sensitivity requires a separate verified descriptor manifest with source provenance.",
+    "Do not invent PDOT axes, local-needs definitions or human labels from this inventory."
+  ]
+}
