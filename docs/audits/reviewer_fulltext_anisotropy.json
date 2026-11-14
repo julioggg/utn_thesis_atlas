@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "status": "full_corpus_embedding_anisotropy_sensitivity_unvalidated",
+  "source_rows": 7830,
+  "original_vs_fulltext": {
+    "04_vs_05_embedding_index": true,
+    "04_vs_06": true,
+    "04_vs_07": true
+  },
+  "fulltext_provenance": {
+    "source_sha256": "a7c7f7f79aa6b617cd4e1c5e0a8aab34caaa8ac5590e9715373ef3725d75dc74",
+    "model_revision_from_cache": "3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3",
+    "encoding_precision": "fp16",
+    "model": "intfloat/multilingual-e5-large",
+    "run_layout": "two disjoint even/odd row shards, run sequentially on one MIG"
+  },
+  "original_unit_norms": {
+    "n": 7830,
+    "min": 1.0,
+    "p05": 1.0,
+    "median": 1.0,
+    "p95": 1.0,
+    "max": 1.0,
+    "mean": 1.0
+  },
+  "fulltext_unit_norms": {
+    "n": 7830,
+    "min": 1.0,
+    "p05": 1.0,
+    "median": 1.0,
+    "p95": 1.0,
+    "max": 1.0,
+    "mean": 1.0
+  },
+  "diagnostics": {
+    "n_documents": 7830,
+    "sampled_distinct_pairs_with_replacement": 100000,
+    "anchor_documents": 256,
+    "top_k_neighbors": 10,
+    "seed": 42,
+    "original_raw_mean_direction_norm": 0.916447,
+    "fulltext_raw_mean_direction_norm": 0.96353,
+    "original_centered_residual_norms": {
+      "n": 7830,
+      "min": 0.338407,
+      "p05": 0.365862,
+      "median": 0.394158,
+      "p95": 0.455968,
+      "max": 0.547894,
+      "mean": 0.399232
+    },
+    "fulltext_centered_residual_norms": {
+      "n": 7830,
+      "min": 0.142663,
+      "p05": 0.215641,
+      "median": 0.262476,
+      "p95": 0.325707,
+      "max": 0.459126,
+      "mean": 0.265407
+    },
+    "pairwise_cosine_distributions": {
+      "original_raw": {
+        "sampled_cross_thesis_cosine": {
+          "n": 100000,
+          "min": 0.736782,
+          "p05": 0.802949,
+          "median": 0.840759,
+          "p95": 0.873624,
+          "max": 0.988987,
+          "mean": 0.839951
+        },
+        "n_sampled_pairs_at_or_above_0p99": 0,
+        "n_sampled_pairs_at_or_above_0p9999": 0,
+        "n_sampled_pairs_at_or_above_0p999999": 0,
+        "exact_mean_cosine_of_all_distinct_unordered_pairs": 0.839855
+      },
+      "fulltext_raw": {
+        "sampled_cross_thesis_cosine": {
+          "n": 100000,
+          "min": 0.832711,
+          "p05": 0.898294,
+          "median": 0.92856,
+          "p95": 0.95772,
+          "max": 1.0,
+          "mean": 0.928362
+        },
+        "n_sampled_pairs_at_or_above_0p99": 20,
+        "n_sampled_pairs_at_or_above_0p9999": 1,
+        "n_sampled_pairs_at_or_above_0p999999": 1,
+        "exact_mean_cosine_of_all_distinct_unordered_pairs": 0.92838
+      },
+      "original_mean_centered": {
+        "sampled_cross_thesis_cosine": {
+          "n": 100000,
+          "min": -0.263177,
+          "p05": -0.121739,
+          "median": -0.011834,
+          "p95": 0.163141,
+          "max": 0.925648,
+          "mean": 0.000131
+        },
+        "n_sampled_pairs_at_or_above_0p99": 0,
+        "n_sampled_pairs_at_or_above_0p9999": 0,
+        "n_sampled_pairs_at_or_above_0p999999": 0,
+        "exact_mean_cosine_of_all_distinct_unordered_pairs": -6e-05
+      },
+      "fulltext_mean_centered": {
+        "sampled_cross_thesis_cosine": {
+          "n": 100000,
+          "min": -0.409879,
+          "p05": -0.203665,
+          "median": -0.0358,
+          "p95": 0.332255,
+          "max": 1.0,
+          "mean": 0.000117
+        },
+        "n_sampled_pairs_at_or_above_0p99": 1,
+        "n_sampled_pairs_at_or_above_0p9999": 1,
+        "n_sampled_pairs_at_or_above_0p999999": 1,
+        "exact_mean_cosine_of_all_distinct_unordered_pairs": 0.000136
+      }
+    },
+    "rank_spearman": {
+      "raw_original_vs_raw_fulltext": 0.431283,
+      "centered_original_vs_centered_fulltext": 0.676802,
+      "original_raw_vs_centered": 0.652058,
+      "fulltext_raw_vs_centered": 0.602672
+    },
+    "topk_neighbor_set_overlap": {
+      "original_vs_fulltext_raw": {
+        "n": 256,
+        "min": 0.0,
+        "p05": 0.0,
+        "median": 0.3,
+        "p95": 0.7,
+        "max": 0.9,
+        "mean": 0.3375
+      },
+      "original_vs_fulltext_centered": {
+        "n": 256,
+        "min": 0.0,
+        "p05": 0.0,
+        "median": 0.4,
+        "p95": 0.7,
+        "max": 0.9,
+        "mean": 0.374219
+      },
+      "original_raw_vs_centered": {
+        "n": 256,
+        "min": 0.2,
+        "p05": 0.5,
+        "median": 0.8,
+        "p95": 1.0,
+        "max": 1.0,
+        "mean": 0.759766
+      },
+      "fulltext_raw_vs_centered": {
+        "n": 256,
+        "min": 0.3,
+        "p05": 0.5,
+        "median": 0.8,
+        "p95": 1.0,
+        "max": 1.0,
+        "mean": 0.807813
+      }
+    },
+    "methodological_notes": [
+      "Mean-centering removes an empirical corpus-level common vector direction; high original cosine can reflect E5 anisotropy, shared writing style, or document content.",
+      "Raw cosine distribution is inherently inflated when the mean vector norm approaches one.",
+      "Mean-centering re-normalizes every thesis vector; it is a sensitivity study, not proof of improved semantic or SDG classification.",
+      "Keyword/SDG/PDOT descriptor vectors require matching centering/projection before cross-modal cosine scoring.",
+      "Old absolute similarity cutoffs must NOT be reused after a geometric transformation.",
+      "Sampled pair counts near cosine one do NOT prove duplicate theses; inspect candidate pairs privately before claiming duplication.",
+      "No individual thesis vectors, source IDs, scores, predicted classifications, texts or neighbors are exported."
+    ]
+  },
+  "classification_accuracy_evaluated": false,
+  "human_ground_truth_available": false
+}

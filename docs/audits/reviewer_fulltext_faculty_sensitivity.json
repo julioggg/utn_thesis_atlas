@@ -1,0 +1,504 @@
+{
+  "schema_version": 1,
+  "status": "original_vs_fulltext_faculty_sensitivity_unvalidated",
+  "n_corpus_rows": 7830,
+  "alignment": {
+    "04_vs_05_embedding_index": true,
+    "04_vs_06": true,
+    "04_vs_07": true
+  },
+  "original_alignment": {
+    "04_vs_05_embedding_index": true,
+    "04_vs_06": true,
+    "04_vs_07": true
+  },
+  "fulltext_provenance": {
+    "source_sha256": "a7c7f7f79aa6b617cd4e1c5e0a8aab34caaa8ac5590e9715373ef3725d75dc74",
+    "model_revision_from_cache": "3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3",
+    "encoding_precision": "fp16",
+    "model": "intfloat/multilingual-e5-large",
+    "run_layout": "two disjoint even/odd row shards, run sequentially on one MIG"
+  },
+  "per_faculty_sample_n_requested": 350,
+  "seed": 42,
+  "diagnostics": {
+    "faculty_provenance": {
+      "strict_known_five_faculty_rows": 6038,
+      "unknown_or_misc_input_rows": 1792,
+      "career_mappings_eligible": 67,
+      "career_imputed_rows": 188,
+      "unresolved_rows": 1604,
+      "minimum_career_support": 10,
+      "minimum_mapping_purity": 0.98,
+      "rule": "strict learned mapping from explicitly labeled real-faculty rows",
+      "caution": "Imputed faculty is not an official administrative record; report sensitivity excluding it."
+    },
+    "strict_original_rows": 6038,
+    "conservative_including_imputed_rows": 6226,
+    "added_heuristic_imputed_rows": 188,
+    "original_missing_or_other_rows_excluded": 1792,
+    "sensitivity": {
+      "strict_original_faculty_only": {
+        "legacy_raw": {
+          "faculties_n": 6038,
+          "faculty_sizes": {
+            "Facultad de Ingeniería en Ciencias Aplicadas": 1779,
+            "Facultad de Educación Ciencia y Tecnología": 1482,
+            "Facultad de Ciencias Administrativas y Económicas": 1381,
+            "Facultad de Ciencias de la Salud": 703,
+            "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 693
+          },
+          "between_faculty_centroid_cosine_distances": {
+            "minimum": 0.01669,
+            "median": 0.024086,
+            "maximum": 0.03421
+          },
+          "balanced_knn": {
+            "selection": "equal-size sample within each of five real faculty groups",
+            "seed": 42,
+            "sampling_without_replacement": true,
+            "per_faculty_n": 350,
+            "balanced_n": 1750,
+            "random_group_mix_expectation_exact": 0.800457,
+            "k_statistics": {
+              "5": {
+                "fraction_neighbors_other_faculty": 0.065943,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.084,
+                  "Facultad de Educación Ciencia y Tecnología": 0.070286,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.105714,
+                  "Facultad de Ciencias de la Salud": 0.015429,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.054286
+                }
+              },
+              "15": {
+                "fraction_neighbors_other_faculty": 0.091886,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.127429,
+                  "Facultad de Educación Ciencia y Tecnología": 0.102667,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.141333,
+                  "Facultad de Ciencias de la Salud": 0.021524,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.066476
+                }
+              },
+              "30": {
+                "fraction_neighbors_other_faculty": 0.122476,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.178381,
+                  "Facultad de Educación Ciencia y Tecnología": 0.132095,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.177238,
+                  "Facultad de Ciencias de la Salud": 0.032857,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.09181
+                }
+              }
+            },
+            "limitation": "Neighborhood mixing among faculties reflects embeddings and disciplinary metadata; not proof of cross-faculty research collaboration."
+          }
+        },
+        "legacy_centered": {
+          "faculties_n": 6038,
+          "faculty_sizes": {
+            "Facultad de Ingeniería en Ciencias Aplicadas": 1779,
+            "Facultad de Educación Ciencia y Tecnología": 1482,
+            "Facultad de Ciencias Administrativas y Económicas": 1381,
+            "Facultad de Ciencias de la Salud": 703,
+            "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 693
+          },
+          "between_faculty_centroid_cosine_distances": {
+            "minimum": 0.856559,
+            "median": 1.211988,
+            "maximum": 1.467073
+          },
+          "balanced_knn": {
+            "selection": "equal-size sample within each of five real faculty groups",
+            "seed": 42,
+            "sampling_without_replacement": true,
+            "per_faculty_n": 350,
+            "balanced_n": 1750,
+            "random_group_mix_expectation_exact": 0.800457,
+            "k_statistics": {
+              "5": {
+                "fraction_neighbors_other_faculty": 0.064229,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.082286,
+                  "Facultad de Educación Ciencia y Tecnología": 0.073143,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.108571,
+                  "Facultad de Ciencias de la Salud": 0.017143,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.04
+                }
+              },
+              "15": {
+                "fraction_neighbors_other_faculty": 0.085105,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.114857,
+                  "Facultad de Educación Ciencia y Tecnología": 0.107429,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.125905,
+                  "Facultad de Ciencias de la Salud": 0.026667,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.050667
+                }
+              },
+              "30": {
+                "fraction_neighbors_other_faculty": 0.108933,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.160857,
+                  "Facultad de Educación Ciencia y Tecnología": 0.131524,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.15619,
+                  "Facultad de Ciencias de la Salud": 0.034476,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.061619
+                }
+              }
+            },
+            "limitation": "Neighborhood mixing among faculties reflects embeddings and disciplinary metadata; not proof of cross-faculty research collaboration."
+          }
+        },
+        "fulltext_raw": {
+          "faculties_n": 6038,
+          "faculty_sizes": {
+            "Facultad de Ingeniería en Ciencias Aplicadas": 1779,
+            "Facultad de Educación Ciencia y Tecnología": 1482,
+            "Facultad de Ciencias Administrativas y Económicas": 1381,
+            "Facultad de Ciencias de la Salud": 703,
+            "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 693
+          },
+          "between_faculty_centroid_cosine_distances": {
+            "minimum": 0.01307,
+            "median": 0.018092,
+            "maximum": 0.027036
+          },
+          "balanced_knn": {
+            "selection": "equal-size sample within each of five real faculty groups",
+            "seed": 42,
+            "sampling_without_replacement": true,
+            "per_faculty_n": 350,
+            "balanced_n": 1750,
+            "random_group_mix_expectation_exact": 0.800457,
+            "k_statistics": {
+              "5": {
+                "fraction_neighbors_other_faculty": 0.069257,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.067429,
+                  "Facultad de Educación Ciencia y Tecnología": 0.088571,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.105143,
+                  "Facultad de Ciencias de la Salud": 0.009714,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.075429
+                }
+              },
+              "15": {
+                "fraction_neighbors_other_faculty": 0.098971,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.100571,
+                  "Facultad de Educación Ciencia y Tecnología": 0.142667,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.13619,
+                  "Facultad de Ciencias de la Salud": 0.018095,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.097333
+                }
+              },
+              "30": {
+                "fraction_neighbors_other_faculty": 0.124114,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.145143,
+                  "Facultad de Educación Ciencia y Tecnología": 0.182,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.162857,
+                  "Facultad de Ciencias de la Salud": 0.025333,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.105238
+                }
+              }
+            },
+            "limitation": "Neighborhood mixing among faculties reflects embeddings and disciplinary metadata; not proof of cross-faculty research collaboration."
+          }
+        },
+        "fulltext_centered": {
+          "faculties_n": 6038,
+          "faculty_sizes": {
+            "Facultad de Ingeniería en Ciencias Aplicadas": 1779,
+            "Facultad de Educación Ciencia y Tecnología": 1482,
+            "Facultad de Ciencias Administrativas y Económicas": 1381,
+            "Facultad de Ciencias de la Salud": 703,
+            "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 693
+          },
+          "between_faculty_centroid_cosine_distances": {
+            "minimum": 0.851579,
+            "median": 1.187839,
+            "maximum": 1.592467
+          },
+          "balanced_knn": {
+            "selection": "equal-size sample within each of five real faculty groups",
+            "seed": 42,
+            "sampling_without_replacement": true,
+            "per_faculty_n": 350,
+            "balanced_n": 1750,
+            "random_group_mix_expectation_exact": 0.800457,
+            "k_statistics": {
+              "5": {
+                "fraction_neighbors_other_faculty": 0.065714,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.062286,
+                  "Facultad de Educación Ciencia y Tecnología": 0.080571,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.111429,
+                  "Facultad de Ciencias de la Salud": 0.013143,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.061143
+                }
+              },
+              "15": {
+                "fraction_neighbors_other_faculty": 0.086362,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.094095,
+                  "Facultad de Educación Ciencia y Tecnología": 0.113714,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.129143,
+                  "Facultad de Ciencias de la Salud": 0.025143,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.069714
+                }
+              },
+              "30": {
+                "fraction_neighbors_other_faculty": 0.109429,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.129905,
+                  "Facultad de Educación Ciencia y Tecnología": 0.146762,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.159238,
+                  "Facultad de Ciencias de la Salud": 0.036,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.075238
+                }
+              }
+            },
+            "limitation": "Neighborhood mixing among faculties reflects embeddings and disciplinary metadata; not proof of cross-faculty research collaboration."
+          }
+        }
+      },
+      "conservative_career_imputation": {
+        "legacy_raw": {
+          "faculties_n": 6226,
+          "faculty_sizes": {
+            "Facultad de Ingeniería en Ciencias Aplicadas": 1800,
+            "Facultad de Educación Ciencia y Tecnología": 1588,
+            "Facultad de Ciencias Administrativas y Económicas": 1407,
+            "Facultad de Ciencias de la Salud": 738,
+            "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 693
+          },
+          "between_faculty_centroid_cosine_distances": {
+            "minimum": 0.016607,
+            "median": 0.02382,
+            "maximum": 0.033914
+          },
+          "balanced_knn": {
+            "selection": "equal-size sample within each of five real faculty groups",
+            "seed": 42,
+            "sampling_without_replacement": true,
+            "per_faculty_n": 350,
+            "balanced_n": 1750,
+            "random_group_mix_expectation_exact": 0.800457,
+            "k_statistics": {
+              "5": {
+                "fraction_neighbors_other_faculty": 0.075429,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.091429,
+                  "Facultad de Educación Ciencia y Tecnología": 0.081143,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.119429,
+                  "Facultad de Ciencias de la Salud": 0.023429,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.061714
+                }
+              },
+              "15": {
+                "fraction_neighbors_other_faculty": 0.103505,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.141143,
+                  "Facultad de Educación Ciencia y Tecnología": 0.112571,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.151238,
+                  "Facultad de Ciencias de la Salud": 0.035619,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.076952
+                }
+              },
+              "30": {
+                "fraction_neighbors_other_faculty": 0.133505,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.193619,
+                  "Facultad de Educación Ciencia y Tecnología": 0.139143,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.191238,
+                  "Facultad de Ciencias de la Salud": 0.044952,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.098571
+                }
+              }
+            },
+            "limitation": "Neighborhood mixing among faculties reflects embeddings and disciplinary metadata; not proof of cross-faculty research collaboration."
+          }
+        },
+        "legacy_centered": {
+          "faculties_n": 6226,
+          "faculty_sizes": {
+            "Facultad de Ingeniería en Ciencias Aplicadas": 1800,
+            "Facultad de Educación Ciencia y Tecnología": 1588,
+            "Facultad de Ciencias Administrativas y Económicas": 1407,
+            "Facultad de Ciencias de la Salud": 738,
+            "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 693
+          },
+          "between_faculty_centroid_cosine_distances": {
+            "minimum": 0.859272,
+            "median": 1.213319,
+            "maximum": 1.471565
+          },
+          "balanced_knn": {
+            "selection": "equal-size sample within each of five real faculty groups",
+            "seed": 42,
+            "sampling_without_replacement": true,
+            "per_faculty_n": 350,
+            "balanced_n": 1750,
+            "random_group_mix_expectation_exact": 0.800457,
+            "k_statistics": {
+              "5": {
+                "fraction_neighbors_other_faculty": 0.070971,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.086857,
+                  "Facultad de Educación Ciencia y Tecnología": 0.082286,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.111429,
+                  "Facultad de Ciencias de la Salud": 0.024,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.050286
+                }
+              },
+              "15": {
+                "fraction_neighbors_other_faculty": 0.0952,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.136,
+                  "Facultad de Educación Ciencia y Tecnología": 0.114476,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.134095,
+                  "Facultad de Ciencias de la Salud": 0.031429,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.06
+                }
+              },
+              "30": {
+                "fraction_neighbors_other_faculty": 0.118114,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.176952,
+                  "Facultad de Educación Ciencia y Tecnología": 0.138762,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.166571,
+                  "Facultad de Ciencias de la Salud": 0.040095,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.06819
+                }
+              }
+            },
+            "limitation": "Neighborhood mixing among faculties reflects embeddings and disciplinary metadata; not proof of cross-faculty research collaboration."
+          }
+        },
+        "fulltext_raw": {
+          "faculties_n": 6226,
+          "faculty_sizes": {
+            "Facultad de Ingeniería en Ciencias Aplicadas": 1800,
+            "Facultad de Educación Ciencia y Tecnología": 1588,
+            "Facultad de Ciencias Administrativas y Económicas": 1407,
+            "Facultad de Ciencias de la Salud": 738,
+            "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 693
+          },
+          "between_faculty_centroid_cosine_distances": {
+            "minimum": 0.01307,
+            "median": 0.018079,
+            "maximum": 0.027253
+          },
+          "balanced_knn": {
+            "selection": "equal-size sample within each of five real faculty groups",
+            "seed": 42,
+            "sampling_without_replacement": true,
+            "per_faculty_n": 350,
+            "balanced_n": 1750,
+            "random_group_mix_expectation_exact": 0.800457,
+            "k_statistics": {
+              "5": {
+                "fraction_neighbors_other_faculty": 0.075657,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.074286,
+                  "Facultad de Educación Ciencia y Tecnología": 0.107429,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.1,
+                  "Facultad de Ciencias de la Salud": 0.025143,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.071429
+                }
+              },
+              "15": {
+                "fraction_neighbors_other_faculty": 0.105448,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.105905,
+                  "Facultad de Educación Ciencia y Tecnología": 0.156571,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.131048,
+                  "Facultad de Ciencias de la Salud": 0.033333,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.100381
+                }
+              },
+              "30": {
+                "fraction_neighbors_other_faculty": 0.131124,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.154381,
+                  "Facultad de Educación Ciencia y Tecnología": 0.191143,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.161333,
+                  "Facultad de Ciencias de la Salud": 0.039238,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.109524
+                }
+              }
+            },
+            "limitation": "Neighborhood mixing among faculties reflects embeddings and disciplinary metadata; not proof of cross-faculty research collaboration."
+          }
+        },
+        "fulltext_centered": {
+          "faculties_n": 6226,
+          "faculty_sizes": {
+            "Facultad de Ingeniería en Ciencias Aplicadas": 1800,
+            "Facultad de Educación Ciencia y Tecnología": 1588,
+            "Facultad de Ciencias Administrativas y Económicas": 1407,
+            "Facultad de Ciencias de la Salud": 738,
+            "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 693
+          },
+          "between_faculty_centroid_cosine_distances": {
+            "minimum": 0.853411,
+            "median": 1.187467,
+            "maximum": 1.589659
+          },
+          "balanced_knn": {
+            "selection": "equal-size sample within each of five real faculty groups",
+            "seed": 42,
+            "sampling_without_replacement": true,
+            "per_faculty_n": 350,
+            "balanced_n": 1750,
+            "random_group_mix_expectation_exact": 0.800457,
+            "k_statistics": {
+              "5": {
+                "fraction_neighbors_other_faculty": 0.067086,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.065714,
+                  "Facultad de Educación Ciencia y Tecnología": 0.077143,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.096,
+                  "Facultad de Ciencias de la Salud": 0.032,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.064571
+                }
+              },
+              "15": {
+                "fraction_neighbors_other_faculty": 0.0928,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.098286,
+                  "Facultad de Educación Ciencia y Tecnología": 0.120952,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.12781,
+                  "Facultad de Ciencias de la Salud": 0.041333,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.075619
+                }
+              },
+              "30": {
+                "fraction_neighbors_other_faculty": 0.115676,
+                "mean_other_faculty_neighborhood_fraction_by_faculty": {
+                  "Facultad de Ingeniería en Ciencias Aplicadas": 0.13819,
+                  "Facultad de Educación Ciencia y Tecnología": 0.144571,
+                  "Facultad de Ciencias Administrativas y Económicas": 0.157524,
+                  "Facultad de Ciencias de la Salud": 0.05581,
+                  "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales": 0.082286
+                }
+              }
+            },
+            "limitation": "Neighborhood mixing among faculties reflects embeddings and disciplinary metadata; not proof of cross-faculty research collaboration."
+          }
+        }
+      }
+    },
+    "cautions": [
+      "Only geometry and missing-faculty sensitivity; NOT accuracy, recall or F1.",
+      "Centring uses the mean of all 7830 thesis vectors before selecting faculties.",
+      "All faculty definitions are historical metadata, not independently adjudicated.",
+      "A larger cross-faculty nearest-neighbor rate does not establish better science or collaboration.",
+      "Missing-faculty rows are excluded from faculty associations, not silently imputed into the five groups.",
+      "Original and fulltext vectors share positional provenance; no source records are exported."
+    ]
+  },
+  "sdg_or_pdot_classifier_recomputed": false
+}
