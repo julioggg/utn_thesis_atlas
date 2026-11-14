@@ -43,7 +43,7 @@ def load_verified_length_census(run_dir, source_root):
     block_size = manifest["documents_per_checkpoint"]
     if manifest["population_rows"] != N or not 1 <= block_size <= 128:
         raise ValueError("Unexpected checkpoint manifest layout")
-    original = source_root / "data/processed/04_corpus_clean.parquet"
+    original = source_root / "data/processed/04_clean_corpus.parquet"
     if sha256_file(original) != manifest["original_04_parquet_sha256"]:
         raise ValueError("Original source corpus fingerprint changed")
     fingerprint = hashlib.sha256(
