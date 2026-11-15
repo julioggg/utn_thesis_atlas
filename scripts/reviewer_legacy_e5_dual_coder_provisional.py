@@ -50,7 +50,8 @@ def evaluate(root, private, output_private):
         by_letter[letter]=df
     original=pd.read_parquet(root/"data/processed/07_alignment_pdot_ods_needs.parquet",
         columns=["handle_id","ods_top1","pdot_top1"])
-    count,alignment=read_original_embeddings(root,len(original))
+    frozen_embeddings,alignment=read_original_embeddings(root,len(original))
+    count=len(frozen_embeddings)
     indices=master["source_row_index"].astype(int).to_numpy()
     if len(set(indices.tolist()))!=450 or indices.min()<0 or indices.max()>=count:
         raise ValueError("Invalid frozen 450 indexes")
