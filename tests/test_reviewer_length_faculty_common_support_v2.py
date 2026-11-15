@@ -50,8 +50,8 @@ class CommonSupportV2Tests(unittest.TestCase):
             [FIVE_FACULTIES[3]],
         )
         self.assertEqual(len(report["groups_included"]), 5)
-        self.assertEqual(sum(report["eligible_groups_original_full_corpus_weights"].values()),
-                         1.0)
+        self.assertAlmostEqual(sum(report["eligible_groups_original_full_corpus_weights"].values()),
+                               1.0, places=5)
         self.assertLess(report["eligible_full_corpus_n"], N)
         self.assertIn(
             "fulltext_target_share",
