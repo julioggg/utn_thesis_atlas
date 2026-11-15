@@ -20,7 +20,8 @@ from collections import Counter
 from pathlib import Path
 
 from audit_annotation_progress import inspect_files
-from export_blinded_validation_workbooks import WORKSPACE, safe_csv_value
+from export_blinded_validation_workbooks import WORKSPACE
+from prepare_section_boundary_review import safe_csv_value
 
 CODES=("sdg_primary","sdg_secondary","sdg_no_match",
        "pdot_primary","pdot_secondary","pdot_no_match")
