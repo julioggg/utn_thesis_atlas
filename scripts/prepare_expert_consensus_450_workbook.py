@@ -4,7 +4,8 @@
 This is a human decision WORKLIST, not an adjudicated gold standard. It
 does not change a single source label, document, or model prediction.
 
-- Distinguishes the 120 probability-sampled and 330 targeted cases.
+- Verifies 120 probability-sampled / 330 targeted cases, but BLINDS their
+  per-document strata in the expert-facing workbook.
 - Includes all 450 case IDs even if third review C was requested for only 201.
 - A/B agreement is presented as an unapproved candidate, NEVER filled into
   any final decision cell.
@@ -31,7 +32,7 @@ from reviewer_three_coder_comparison import comparison, label
 
 PRIVATE=(WORKSPACE/"data/revision_private").resolve()
 FIELDS=(
-    "study_id","private_source_handle","selection_stratum",
+    "study_id","private_source_handle",
     "review_priority","review_reason",
     "A_ODS_primary","B_ODS_primary","C_ODS_primary",
     "A_PDOT_primary","B_PDOT_primary","C_PDOT_primary",
@@ -42,7 +43,7 @@ FIELDS=(
     "final_pdot_primary","final_pdot_no_match",
     "final_expert_rationale","final_expert_name_and_date",
 )
-EDITABLE=FIELDS[19:]
+EDITABLE=FIELDS[18:]
 
 def proposal(a,b,dom):
     x=label(a,dom)
@@ -76,7 +77,6 @@ def generate(master,a,b,c,queue):
         item={
             "study_id":sid,
             "private_source_handle":canonical(original["handle_id"]),
-            "selection_stratum":original["selection_stratum"],
             "review_priority":status,
             "review_reason":reasons,
             "A_ODS_primary":label(aa,"sdg"),
@@ -116,7 +116,7 @@ def instructions():
         ["7. PDOT","Solo PDOT 1..6 bajo libro de códigos analítico aprobado; si no corresponde, dejar principal vacío y marcar yes."],
         ["8. EVIDENCIA","Registrar fundamento real en tesis, sección, discrepancias y resolución."],
         ["9. REVISOR","Registrar nombre/fecha de quienes aprueban la decisión humana final."],
-        ["10. RESPUESTAS","Completar columnas T:Y únicamente; no modificar las columnas A:S de origen."],
+        ["10. RESPUESTAS","Completar columnas S:X únicamente; no modificar las columnas A:R de origen."],
         ["11. POBLACIÓN","Los 120 aleatorios y 330 enriquecidos NO se mezclan al estimar rendimiento poblacional."],
         ["12. ORIGEN C","C presenta una declaración de autoría humana posterior y marcas IA en el XLSX: conservar y documentar ambos hechos."],
         ["13. PROTECCIÓN","Nunca publicar los identificadores, justificaciones o textos de tesis en GitHub."],
@@ -127,19 +127,19 @@ def create_workbook(rows,output):
     intro=[
         ["CONSENSO HUMANO · 450 CASOS"]+[""]*(len(FIELDS)-1),
         ["Las respuestas de A/B/C son contexto; NO son una votación automática"]+[""]*(len(FIELDS)-1),
-        ["Columnas T:Y amarillas destinadas al experto adjudicador"]+[""]*(len(FIELDS)-1),
+        ["Columnas S:X amarillas destinadas al experto adjudicador"]+[""]*(len(FIELDS)-1),
         ["No convertir candidatos L:M en ground truth sin acta de aprobación"]+[""]*(len(FIELDS)-1),
         list(FIELDS),
     ]
     intro.extend([[row[field] for field in FIELDS] for row in rows])
     end=len(intro)
     lists=[
-        (f"T6:T{end}",[key for key,_ in ODS]),
-        (f"U6:U{end}",["yes","no"]),
-        (f"V6:V{end}",[key for key,_ in PDOT]),
-        (f"W6:W{end}",["yes","no"]),
+        (f"S6:S{end}",[key for key,_ in ODS]),
+        (f"T6:T{end}",["yes","no"]),
+        (f"U6:U{end}",[key for key,_ in PDOT]),
+        (f"V6:V{end}",["yes","no"]),
     ]
-    tall=[16,38,25,30,40,17,17,17,19,19,19,22,22,15,15,15,74,74,74,18,18,18,18,85,35]
+    tall=[16,38,30,40,17,17,17,19,19,19,22,22,15,15,15,74,74,74,18,18,18,18,85,35]
     summary=Counter(r["review_priority"] for r in rows)
     blocks=[
         ["RESUMEN DE TRABAJO DE CONSENSO",""],
