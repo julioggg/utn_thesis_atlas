@@ -30,7 +30,11 @@
     "zip_crc_valid": true,
     "vba_macros_present": false,
     "formula_errors_detected": 0,
-    "compared_against_original_47_case_workbook": true
+    "compared_against_original_47_case_workbook": true,
+    "checked_original_450_case_A_and_B_workbooks_in_current_turn": true,
+    "exact_union_of_A_B_primary_disagreement_case_IDs": true,
+    "unchanged_original_A_B_primary_labels_and_handles": true,
+    "differences_against_original_A_B_primary_labels_or_handles": 0
   },
   "methodological_status": {
     "frozen_source_samples_A_and_B": 450,
