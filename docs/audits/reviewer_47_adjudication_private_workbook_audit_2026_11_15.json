@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "technical_adjudication_proposals_complete_human_ratification_pending",
+  "audit_date": "2026-11-15",
+  "uploaded_private_filename": "Adjudicacion_47_Tesis_ODS_PDOT_COMPLETA.xlsx",
+  "uploaded_private_sha256": "30e5044b6ea9cf3a9c17b4daff682367ffc8136698a20fadfe0737b7e1730ca5",
+  "source_template_immutable_columns_A_to_J_unchanged": true,
+  "workbook_structure": {
+    "n_sheets": 9,
+    "n_cases": 47,
+    "unique_case_ids": 47,
+    "unique_source_handles": 47,
+    "ods_A_B_primary_disagreements": 35,
+    "pdot_A_B_primary_disagreements": 21,
+    "both_ods_and_pdot": 9,
+    "ods_only": 26,
+    "pdot_only": 12
+  },
+  "technical_proposal_checks": {
+    "structured_label_no_match_conflicts": 0,
+    "workbook_status_LISTO": 47,
+    "proposed_ods_no_match": 5,
+    "proposed_pdot_no_match": 2,
+    "technical_IA_assisted_pending_human_signature_in_all_47": true,
+    "human_consensus_approvals_documented": 0,
+    "suspicious_mixed_collection_or_journal_volume_cases_flagged": 2,
+    "original_complete_thesis_texts_verified_by_this_audit": false
+  },
+  "source_file_integrity": {
+    "zip_crc_valid": true,
+    "vba_macros_present": false,
+    "formula_errors_detected": 0,
+    "compared_against_original_47_case_workbook": true
+  },
+  "methodological_status": {
+    "frozen_source_samples_A_and_B": 450,
+    "third_reviewer_C_selected_cases": 201,
+    "remaining_A_B_main_label_conflicts_unratified": 47,
+    "remaining_AB_primary_agreement_cases_require_protocol_ratification": 403,
+    "official_PDOT_codebook_and_original_descriptor_lineage_approved": false,
+    "bibliography_section_cases_pending_separate_resolution": 2,
+    "final_adjudicated_450_case_gold_standard": false,
+    "model_precision_recall_f1_computed": false
+  },
+  "publication_safety": {
+    "repo_visibility": "public",
+    "private_workbook_uploaded_to_public_github": false,
+    "reason": "Workbook contains individual thesis handles, source excerpts, coder opinions and restricted institutional material.",
+    "allowable_public_evidence": "Privacy-preserving aggregate counts and SHA-256 of original private workbook only."
+  },
+  "limitations": [
+    "LISTO means field completeness, not documented human adjudication.",
+    "The responsibility field in all 47 cases says technical AI-assisted adjudication with committee signature pending.",
+    "The original source text verification claimed within the workbook was not independently replicated in this audit.",
+    "The 47 cases are selected disagreements: no-match frequencies cannot estimate prevalence in 7830 theses.",
+    "Precision, recall and F1 for E5 require a valid reference protocol and actual model prediction comparison."
+  ]
+}
