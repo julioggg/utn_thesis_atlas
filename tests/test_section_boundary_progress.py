@@ -28,6 +28,25 @@ class BoundaryAuditTests(unittest.TestCase):
         row["human_trim_from_boundary_safe"] = "no"
         self.assertEqual(assess_row(row)[0], "needs_adjudication")
 
+    def test_rejected_heading_with_better_boundary_requires_adjudication(self):
+        row = {
+            "candidate_position_fraction": "0.905213",
+            "human_heading_is_real_references_start": "no",
+            "human_corrected_boundary_fraction": "0.625923",
+            "human_tail_contains_scientific_contribution": "yes",
+            "human_trim_from_boundary_safe": "no",
+            "human_notes": "Two reference sections separated by scientific content.",
+        }
+        state, reasons = assess_row(row)
+        self.assertEqual(state, "needs_adjudication")
+        self.assertEqual(reasons, ["corrected_candidate_requires_adjudication"])
+        # A logically unsafe assertion remains a hard invalidity, even if
+        # there is ALSO a legitimate correction that needs adjudication.
+        row["human_trim_from_boundary_safe"] = "yes"
+        state, reasons = assess_row(row)
+        self.assertEqual(state, "invalid")
+        self.assertIn("unsafe_trim_approval_conflict", reasons)
+
     def test_unedited_and_partial(self):
         row = {
             "candidate_position_fraction": "",
