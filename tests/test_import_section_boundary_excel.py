@@ -18,7 +18,7 @@ class StructuralExcelImportTests(unittest.TestCase):
         self.assertTrue(same_immutable_field(
             "extracted_fulltext_chars", "081000", "81000"))
         self.assertTrue(same_immutable_field(
-            "context_before", "Start\\r\\nEnd  ", "Start\\nEnd"))
+            "context_before", "Start\r\nEnd  ", "Start\nEnd"))
         self.assertTrue(same_immutable_field(
             "private_source_handle", "'=safe", "=safe"))
         self.assertFalse(same_immutable_field(
