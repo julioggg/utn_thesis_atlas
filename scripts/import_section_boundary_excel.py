@@ -13,12 +13,31 @@ import csv
 import os
 import shutil
 import tempfile
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 from export_blinded_validation_workbooks import BOUNDARY_FIELDS, WORKSPACE
 from import_blinded_validation_excel import read_xlsx_rows
 
 FIELDS = BOUNDARY_FIELDS[9:]
+
+def same_immutable_field(field, original, incoming):
+    """Compare frozen metadata without Excel-only formatting artifacts.
+
+    Trims outer whitespace, normalizes line endings and compares numeric
+    quantities semantically; never edits the underlying original CSV values.
+    """
+    a=(original or "").strip().replace("\r\n","\n").replace("\r","\n")
+    b=(incoming or "").strip().replace("\r\n","\n").replace("\r","\n")
+    if field=="private_source_handle":
+        a=a.removeprefix("'")
+        b=b.removeprefix("'")
+    if field in ("candidate_position_fraction","extracted_fulltext_chars") and a and b:
+        try:
+            return Decimal(a)==Decimal(b)
+        except InvalidOperation:
+            return False
+    return a==b
 
 def read_csv(path):
     with path.open(newline="",encoding="utf-8-sig") as stream:
@@ -75,9 +94,9 @@ def ingest(args):
     for rid,old_row in original.items():
         fresh=submitted[rid]
         for key in BOUNDARY_FIELDS[:9]:
-            orig=old_row.get(key,"").lstrip("'") if key=="private_source_handle" else old_row.get(key,"")
-            supplied=fresh.get(key,"").lstrip("'") if key=="private_source_handle" else fresh.get(key,"")
-            if orig!=supplied:
+            if not same_immutable_field(
+                key, old_row.get(key,""), fresh.get(key,"")
+            ):
                 raise ValueError("Immutable section-review data changed: "+key)
         for key in FIELDS:
             old_val=(old_row.get(key) or "").strip()
