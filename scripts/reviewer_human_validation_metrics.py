@@ -178,7 +178,8 @@ def evaluate(args):
     adjudicated=adjudicated.set_index("study_id").reindex(master["study_id"]).reset_index()
     source=pd.read_parquet(root/"data/processed/07_alignment_pdot_ods_needs.parquet",
                            columns=["handle_id","ods_top1","pdot_top1"])
-    n,align=read_original_embeddings(root,len(source))
+    original_embeddings,align=read_original_embeddings(root,len(source))
+    n=len(original_embeddings)
     rows=master["source_row_index"].astype(int).to_numpy()
     if len(set(rows.tolist()))!=len(rows) or rows.min()<0 or rows.max()>=n:
         raise ValueError("Invalid frozen private sample indices")
