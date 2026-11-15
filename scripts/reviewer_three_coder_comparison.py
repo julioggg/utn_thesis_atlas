@@ -26,7 +26,6 @@ from audit_uploaded_third_review_proposals import (
     PRIVATE_ROOT, FILES, C_FIELDS, read_workbook_rows, compare_roster,
     validate_thematic
 )
-from prepare_thematic_adjudication_queue import read_csv as _unused  # noqa: F401
 from prepare_thematic_adjudication_queue import (
     load_csv, select_cases, canonical
 )
