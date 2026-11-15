@@ -30,7 +30,7 @@ from import_blinded_validation_excel import (
 from import_section_boundary_excel import (
     FIELDS as STRUCTURAL_ANSWERS,
     ingest as import_structural, parse_boundary_excel,
-    read_csv as read_structural_csv
+    read_csv as read_structural_csv, same_immutable_field
 )
 from audit_section_boundary_review import assess_row
 
@@ -119,12 +119,9 @@ def preflight_structural(input_xlsx, root=WORKSPACE):
     for rid,original in expected.items():
         row=given[rid]
         for field in BOUNDARY_FIELDS[:9]:
-            former=(original.get(field) or "").strip()
-            received=(row.get(field) or "").strip()
-            if field=="private_source_handle":
-                former=former.removeprefix("'")
-                received=received.removeprefix("'")
-            if former!=received:
+            if not same_immutable_field(
+                field, original.get(field,""), row.get(field,"")
+            ):
                 raise ValueError("Structural immutable row metadata differs: "+field)
         if source_identity(row) in restricted:
             raise ValueError("Structural document overlaps 450-case thematic sample")
