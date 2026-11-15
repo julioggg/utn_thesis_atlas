@@ -71,9 +71,10 @@ class ExpertConsensusWorkbookTests(unittest.TestCase):
                 xml=z.read("xl/worksheets/sheet2.xml").decode()
                 self.assertIn("final_sdg_primary",xml)
                 self.assertIn("dataValidations",xml)
-                self.assertIn('r="T6" s="3"',xml)
+                self.assertIn('r="S6" s="3"',xml)
                 self.assertIn('r="C6" s="2"',xml)
                 self.assertNotIn("<f>",xml)
+                self.assertNotIn("selection_stratum",xml)
 
     def test_invalid_roster_never_exported(self):
         m,a,b,c,q=self.inputs()
