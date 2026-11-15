@@ -49,7 +49,7 @@ class ThirdReviewPacketsTests(unittest.TestCase):
             self.assertNotIn("Private B notes",xml)
             self.assertNotIn("ods_disagreement",xml)
             self.assertNotIn("coder_A_sdg_primary",xml)
-            self.assertNotIn("ODS 12",xml)
+            self.assertNotIn(">ODS 12<",xml)  # category may appear in allowed dropdown
             self.assertIn("dataValidations",xml)
 
     def test_structural_omits_prior_human_decisions_and_keeps_candidate(self):
