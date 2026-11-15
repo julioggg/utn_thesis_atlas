@@ -65,14 +65,19 @@ def assess_row(row):
         # A corrected position is allowed, but this needs explicit adjudication
         # before using the proposed heading in a preprocessing pipeline.
         issues.append("corrected_candidate_requires_adjudication")
-    if issues:
+    # A rejected heading with a proposed corrected boundary is not a
+    # malformed reviewer answer. It is substantive evidence requiring a
+    # separate, source-verified adjudication; do not misreport it as invalid.
+    pending = {"corrected_candidate_requires_adjudication"}
+    hard = set(issues) - pending
+    if hard:
         return "invalid", sorted(set(issues))
     if all(v == "" for v in answers.values()) and correction is None:
         return "not_started", []
     if any(v == "" for v in answers.values()):
-        return "in_progress", []
-    if any(v == "uncertain" for v in answers.values()):
-        return "needs_adjudication", []
+        return "in_progress", sorted(set(issues))
+    if issues or any(v == "uncertain" for v in answers.values()):
+        return "needs_adjudication", sorted(set(issues))
     return "reviewed", []
 
 
