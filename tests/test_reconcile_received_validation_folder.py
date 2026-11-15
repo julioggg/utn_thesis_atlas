@@ -111,7 +111,8 @@ class PrivateReceivedFolderTests(unittest.TestCase):
             self.assertFalse(report[letter]["human_independence_or_provenance_verified"])
         self.assertEqual(report["80"]["cases"],80)
         self.assertEqual(report["80"]["status_counts"]["reviewed"],78)
-        self.assertEqual(report["80"]["status_counts"]["invalid"],2)
+        self.assertEqual(report["80"]["status_counts"]["needs_adjudication"],2)
+        self.assertEqual(report["80"]["status_counts"]["invalid"],0)
         after={p.name:p.read_bytes() for p in self.incoming.glob("*.xlsx")}
         self.assertEqual(before,after)
 
