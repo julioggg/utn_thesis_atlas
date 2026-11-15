@@ -139,7 +139,7 @@ def sheet_xml(rows, widths, variant="generic", lists=None):
                     style = "3" if (
                         (variant=="annotation" and cnum>=3) or
                         (variant=="boundary" and cnum>=10) or
-                        (variant=="consensus" and cnum>=20)
+                        (variant=="consensus" and cnum>=19)
                     ) else "2"
                     xnode(rw,"c",{"r":f"{column(cnum)}{rnum}","s":style})
                 continue
@@ -148,7 +148,7 @@ def sheet_xml(rows, widths, variant="generic", lists=None):
                 style = "3" if (
                     (variant=="annotation" and cnum>=3) or
                     (variant=="boundary" and cnum>=10) or
-                        (variant=="consensus" and cnum>=20)
+                        (variant=="consensus" and cnum>=19)
                 ) else "2"
             cell=xnode(rw,"c",{"r":f"{column(cnum)}{rnum}","s":style,
                                "t":"inlineStr"})
