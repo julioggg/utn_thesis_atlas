@@ -64,17 +64,21 @@ def evaluate_final(row):
     for kind,allowed in (("sdg",ODS),("pdot",PDOT)):
         label=row[f"final_{kind}_primary"]
         no=row[f"final_{kind}_no_match"].lower()
-        if no not in ("yes","no"):
-            problems.append(f"{kind}_flag_missing")
+        if no and no not in ("yes","no"):
+            problems.append(f"{kind}_invalid_no_match_flag")
         if label and label not in allowed:
             problems.append(f"{kind}_invalid_primary")
         if no=="yes" and label:
             problems.append(f"{kind}_no_match_conflict")
-        if no=="no" and not label:
-            problems.append(f"{kind}_primary_missing")
     if problems:
         return "invalid", problems
-    if not row["final_expert_rationale"].strip() or not row["final_expert_name_and_date"].strip():
+    incomplete=any(
+        row[f"final_{kind}_no_match"].lower() not in ("yes","no")
+        or (row[f"final_{kind}_no_match"].lower()=="no"
+            and not row[f"final_{kind}_primary"])
+        for kind in ("sdg","pdot")
+    )
+    if incomplete or not row["final_expert_rationale"].strip() or not row["final_expert_name_and_date"].strip():
         return "in_progress", []
     return "complete", []
 
