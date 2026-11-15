@@ -8,10 +8,24 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"scripts"))
 from export_blinded_validation_workbooks import (
     BOUNDARY_FIELDS, build_xlsx, boundary_sheets
 )
-from import_section_boundary_excel import parse_boundary_excel
+from import_section_boundary_excel import parse_boundary_excel, same_immutable_field
 
 
 class StructuralExcelImportTests(unittest.TestCase):
+    def test_immutable_original_fields_ignore_only_representation_artifacts(self):
+        self.assertTrue(same_immutable_field(
+            "candidate_position_fraction", "0.9052130", "0.905213"))
+        self.assertTrue(same_immutable_field(
+            "extracted_fulltext_chars", "081000", "81000"))
+        self.assertTrue(same_immutable_field(
+            "context_before", "Start\\r\\nEnd  ", "Start\\nEnd"))
+        self.assertTrue(same_immutable_field(
+            "private_source_handle", "'=safe", "=safe"))
+        self.assertFalse(same_immutable_field(
+            "context_after", "References and results", "References only"))
+        self.assertFalse(same_immutable_field(
+            "candidate_position_fraction", "0.905213", "0.905214"))
+
     def test_80_structural_rows_read_from_workbook(self):
         with tempfile.TemporaryDirectory() as td:
             path=Path(td)/"structural.xlsx"
