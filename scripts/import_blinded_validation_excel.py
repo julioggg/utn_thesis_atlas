@@ -86,7 +86,7 @@ def read_xlsx_rows(path, sheet_name="ANOTACION"):
 def extract_annotations(path,expected_coder):
     rows=read_xlsx_rows(path)
     first=dict(rows).get(1,{})
-    if expected_coder.upper() not in first.get(1,"").upper():
+    if not first.get(1,"").upper().strip().endswith("EVALUADOR "+expected_coder.upper()):
         raise ValueError("Excel does not identify requested independent coder")
     heads=dict(rows).get(5,{})
     observed=[heads.get(i,"") for i in range(1,len(ANNOTATION_FIELDS)+1)]
