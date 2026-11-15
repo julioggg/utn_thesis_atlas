@@ -135,24 +135,26 @@ def sheet_xml(rows, widths, variant="generic", lists=None):
         for cnum,val in enumerate(values,1):
             if val is None or val=="":
                 # Emit empty with style if editable, leaving Excel cells ready.
-                if rnum>=6 and variant in ("annotation","boundary"):
+                if rnum>=6 and variant in ("annotation","boundary","consensus"):
                     style = "3" if (
                         (variant=="annotation" and cnum>=3) or
-                        (variant=="boundary" and cnum>=10)
+                        (variant=="boundary" and cnum>=10) or
+                        (variant=="consensus" and cnum>=20)
                     ) else "2"
                     xnode(rw,"c",{"r":f"{column(cnum)}{rnum}","s":style})
                 continue
             style = "4" if rnum==1 else "1" if rnum==5 else "0"
-            if rnum>=6 and variant in ("annotation","boundary"):
+            if rnum>=6 and variant in ("annotation","boundary","consensus"):
                 style = "3" if (
                     (variant=="annotation" and cnum>=3) or
-                    (variant=="boundary" and cnum>=10)
+                    (variant=="boundary" and cnum>=10) or
+                        (variant=="consensus" and cnum>=20)
                 ) else "2"
             cell=xnode(rw,"c",{"r":f"{column(cnum)}{rnum}","s":style,
                                "t":"inlineStr"})
             t=xnode(xnode(cell,"is"),"t",{"{http://www.w3.org/XML/1998/namespace}space":"preserve"})
             t.text=clean_text(val)
-    if variant in ("annotation","boundary"):
+    if variant in ("annotation","boundary","consensus"):
         last=f"{column(len(widths))}{len(rows)}"
         xnode(root,"autoFilter",{"ref":f"A5:{last}"})
     if lists:
