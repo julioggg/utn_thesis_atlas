@@ -7,8 +7,8 @@ CEDIA-only output: no automated E5 predictions, descriptors, source text,
 sample strata or individual annotation content in public files.
 
 A case is queued when primary/secondary ODS or PDOT labels differ, either
-coder marked uncertain=yes, either reported no-match, or one coder's
-free-text evidence indicates potential source ambiguity. The queue can
+coder marked uncertain=yes, or either reported no-match. Free-text notes
+are preserved for review but are not used by the automated queue filter. The queue can
 be reviewed by a third expert only AFTER A and B coding are frozen.
 Adjudication fields remain empty; no evaluator decision is fabricated.
 """
