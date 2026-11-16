@@ -127,10 +127,15 @@ def freeze(args):
         fac_counts["career_imputed"]!=audit_fac["career_imputed_rows"]
     ):
         raise ValueError("Five-faculty lineage count inconsistent")
-    counts={domain:{
-        name:int((output[f"{domain}_label"]==name).sum())
-        for name in output[f"{domain}_label"].unique()
-    } for domain in DOMAIN_COUNTS}
+    counts={}
+    for domain in DOMAIN_COUNTS:
+        keys=(sorted(output[f"{domain}_label"].unique()) if domain!="need"
+              else list(source_names["need"]))
+        counts[domain]={
+            (str(name) if domain!="need" else f"Local need {i+1:02d}"):
+                int((output[f"{domain}_label"]==name).sum())
+            for i,name in enumerate(keys)
+        }
     if any(sum(counts[domain].values())!=N for domain in DOMAIN_COUNTS):
         raise ValueError("Census totals do not add to 7830")
     # Atomic private data lock; no overwrite or fallback to legacy if missing.
@@ -151,6 +156,7 @@ def freeze(args):
                                  "pdot":[f"Analytical axis {i}" for i in range(1,7)],
                                  "local_needs":"10 historically defined source categories; private strings not exported"},
         "label_totals":counts,
+        "local_need_codes_are_indexed_source_order":True,
         "faculty_resolution":audit_fac,
         "faculty_provenance_counts":fac_counts,
         "adviser_records_with_nonempty_value":n_reported,
