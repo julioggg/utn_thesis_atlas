@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-11-15",
+  "current_uploaded_name": "Adjudicacion_47_Tesis_ODS_PDOT_COMPLETA(3).xlsx",
+  "current_sha256": "ab94f261295cdfde523f819ff9dbd92a388b577357a5e6bf6099e752d65f72dd",
+  "previous_sha256": "30e5044b6ea9cf3a9c17b4daff682367ffc8136698a20fadfe0737b7e1730ca5",
+  "case_count": 47,
+  "source_cases_unchanged": 47,
+  "source_final_labels_unchanged": 47,
+  "changed_cells": 47,
+  "changed_sheet": "ADJUDICACION_47",
+  "changed_column": "Q — Responsable/comité",
+  "new_attribution": "Comite de revisión FICA",
+  "original_control_sheet_unchanged": true,
+  "old_control_still_reports_human_approval_pending": true,
+  "individual_signatory_names_in_workbook": false,
+  "separate_signed_approval_present_in_workbook": false,
+  "status": "47_structurally_complete_committee_attribution_updated_signoff_addendum_required",
+  "privacy": {
+    "repo_visibility": "public",
+    "private_xlsx_uploaded": false
+  },
+  "notes": [
+    "Current workbook only changes committee attribution in 47 review rows; no primary labels, evidence, dates, ids, or handles changed.",
+    "Coordinator reports human ratification; neither signature nor approved PDOT codebook are contained in the uploaded workbook.",
+    "Old CONTROL_TECNICO language explicitly says proposal assisted by AI and human approval pending; preserve historical records and attach a separate signed statement.",
+    "Use private CEDIA preflight and freeze script to crosscheck exact 47 conflicts and optionally create a 450-label reference after expert approval of 403 agreement policy."
+  ]
+}
