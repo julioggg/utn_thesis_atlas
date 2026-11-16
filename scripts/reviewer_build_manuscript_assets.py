@@ -200,6 +200,37 @@ def study_five_faculty(df,outdir):
               residual_rows)
     return s
 
+def canonical_topic_codes(series):
+    """Use source topic IDs, not unverified automatically generated topic names.
+
+    Distinct nonnumeric original topic labels receive stable numeric source
+    codes starting at 1000; never publish a guessed English translation.
+    """
+    txt=series.astype("string").str.strip()
+    present=[x for x in txt.dropna().unique()
+             if x and x.casefold() not in ("nan","none","null")]
+    if not present:raise ValueError("No topic assignments in frozen source")
+    code={}
+    existing=set()
+    other=[]
+    for key in present:
+        try:
+            value=float(key)
+            if not np.isfinite(value) or value<0 or int(value)!=value:
+                raise ValueError("noninteger topic id")
+            label=f"{int(value):02d}"
+            if label in existing:raise ValueError("Ambiguous numeric source topic IDs")
+            code[key]=label
+            existing.add(label)
+        except (ValueError,OverflowError):
+            other.append(key)
+    for j,key in enumerate(sorted(other),start=1000):
+        label=str(j)
+        if label in existing:raise ValueError("Collision with source topic ID")
+        code[key]=label
+    return txt.map(code)
+
+
 def build(args):
     workspace=Path(__file__).resolve().parent.parent
     private=(workspace/"data/revision_private").resolve()
@@ -216,6 +247,9 @@ def build(args):
         raise ValueError("Private snapshot SHA-256 differs from frozen audit")
     df=pd.read_parquet(snap)
     verify_ledger(df,audit)
+    # Scientific labels were not vetted in the historical topic model.
+    # Keep source IDs instead of exposing spurious 'technique' topic labels.
+    df["topic"]=canonical_topic_codes(df["topic"])
     output=root/"figures"
     tables=root/"tables"
     output.mkdir(parents=True,exist_ok=True)
