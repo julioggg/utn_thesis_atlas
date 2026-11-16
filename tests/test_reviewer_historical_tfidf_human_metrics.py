@@ -4,6 +4,8 @@ import unittest
 from pathlib import Path
 
 import numpy as np
+import importlib.util
+HAS_SKLEARN=importlib.util.find_spec("sklearn") is not None
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"scripts"))
 from reviewer_historical_tfidf_human_metrics import (
@@ -37,6 +39,7 @@ class SourceDescriptorLexicalBaselineTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"size"):
             prepare_lexical_texts(raw,"ods")
 
+    @unittest.skipUnless(HAS_SKLEARN, "scikit-learn optional; installed in CEDIA")
     def test_fit_excludes_private_heldout_docs(self):
         texts=[
             "physics electric energy frequency",
