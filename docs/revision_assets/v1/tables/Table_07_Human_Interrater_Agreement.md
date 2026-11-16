@@ -1,0 +1,4 @@
+| Domain | Two-coder sample n | Observed agreement | Cohen kappa | Classes observed across coders |
+| --- | --- | --- | --- | --- |
+| SDG | 450 | 0.922222 | 0.913088 | 18 |
+| PDOT | 450 | 0.953333 | 0.938504 | 6 |

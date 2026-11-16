@@ -1,0 +1,42 @@
+| Domain | Human coder | Classifier | Sample | Metric | Value |
+| --- | --- | --- | --- | --- | --- |
+| SDG | A | TF-IDF | random_120 | accuracy | 0.533333 |
+| SDG | A | TF-IDF | random_120 | macro-F1 | 0.392683 |
+| SDG | A | Legacy E5 | random_120 | accuracy | 0.5 |
+| SDG | A | Legacy E5 | random_120 | macro-F1 | 0.293666 |
+| SDG | A | Legacy E5 centered | random_120 | accuracy | 0.508333 |
+| SDG | A | Legacy E5 centered | random_120 | macro-F1 | 0.323478 |
+| SDG | A | Fulltext E5 | random_120 | accuracy | 0.566667 |
+| SDG | A | Fulltext E5 | random_120 | macro-F1 | 0.347871 |
+| SDG | A | Fulltext E5 centered | random_120 | accuracy | 0.616667 |
+| SDG | A | Fulltext E5 centered | random_120 | macro-F1 | 0.370112 |
+| SDG | B | TF-IDF | random_120 | accuracy | 0.516667 |
+| SDG | B | TF-IDF | random_120 | macro-F1 | 0.379207 |
+| SDG | B | Legacy E5 | random_120 | accuracy | 0.533333 |
+| SDG | B | Legacy E5 | random_120 | macro-F1 | 0.29604 |
+| SDG | B | Legacy E5 centered | random_120 | accuracy | 0.541667 |
+| SDG | B | Legacy E5 centered | random_120 | macro-F1 | 0.362298 |
+| SDG | B | Fulltext E5 | random_120 | accuracy | 0.575 |
+| SDG | B | Fulltext E5 | random_120 | macro-F1 | 0.34142 |
+| SDG | B | Fulltext E5 centered | random_120 | accuracy | 0.641667 |
+| SDG | B | Fulltext E5 centered | random_120 | macro-F1 | 0.413286 |
+| PDOT | A | TF-IDF | random_120 | accuracy | 0.5 |
+| PDOT | A | TF-IDF | random_120 | macro-F1 | 0.412382 |
+| PDOT | A | Legacy E5 | random_120 | accuracy | 0.433333 |
+| PDOT | A | Legacy E5 | random_120 | macro-F1 | 0.395537 |
+| PDOT | A | Legacy E5 centered | random_120 | accuracy | 0.491667 |
+| PDOT | A | Legacy E5 centered | random_120 | macro-F1 | 0.419882 |
+| PDOT | A | Fulltext E5 | random_120 | accuracy | 0.4 |
+| PDOT | A | Fulltext E5 | random_120 | macro-F1 | 0.2906 |
+| PDOT | A | Fulltext E5 centered | random_120 | accuracy | 0.541667 |
+| PDOT | A | Fulltext E5 centered | random_120 | macro-F1 | 0.437472 |
+| PDOT | B | TF-IDF | random_120 | accuracy | 0.491667 |
+| PDOT | B | TF-IDF | random_120 | macro-F1 | 0.403962 |
+| PDOT | B | Legacy E5 | random_120 | accuracy | 0.433333 |
+| PDOT | B | Legacy E5 | random_120 | macro-F1 | 0.394241 |
+| PDOT | B | Legacy E5 centered | random_120 | accuracy | 0.5 |
+| PDOT | B | Legacy E5 centered | random_120 | macro-F1 | 0.425484 |
+| PDOT | B | Fulltext E5 | random_120 | accuracy | 0.408333 |
+| PDOT | B | Fulltext E5 | random_120 | macro-F1 | 0.2962 |
+| PDOT | B | Fulltext E5 centered | random_120 | accuracy | 0.541667 |
+| PDOT | B | Fulltext E5 centered | random_120 | macro-F1 | 0.439156 |

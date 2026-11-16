@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "status": "frozen_descriptive_model_snapshot_exploratory",
+  "model_variant": "fulltext_centered",
+  "n_original_thesis_records": 7830,
+  "single_consistent_domain_variant": true,
+  "source_data_sha256": "04069273c34fcfa586f27888839921cc5061fccb7990695bfaa54afd7e6e22ea",
+  "source_matrix_sha256": "6bbb747912c12a63131f2c5635878007d17825465177ca64bc93565b4bf2ed23",
+  "source_reclassification_sha256": "cbbdade817cc62d2e6c50f4ff9032c0af82676b8e29a0cbd358aecbac486435a",
+  "private_snapshot_sha256": "4ec49150b95032506c33f9406964bb3e141eeceea8f8de7f533d9f7d681f7167",
+  "private_snapshot_relative_path": "data/revision_private/manuscript_release_v1/model_snapshot_PRIVATE.parquet",
+  "source_category_order": {
+    "ods": [
+      "SDG 1",
+      "SDG 2",
+      "SDG 3",
+      "SDG 4",
+      "SDG 5",
+      "SDG 6",
+      "SDG 7",
+      "SDG 8",
+      "SDG 9",
+      "SDG 10",
+      "SDG 11",
+      "SDG 12",
+      "SDG 13",
+      "SDG 14",
+      "SDG 15",
+      "SDG 16",
+      "SDG 17"
+    ],
+    "pdot": [
+      "Analytical axis 1",
+      "Analytical axis 2",
+      "Analytical axis 3",
+      "Analytical axis 4",
+      "Analytical axis 5",
+      "Analytical axis 6"
+    ],
+    "local_needs": "10 historically defined source categories; private strings not exported"
+  },
+  "label_totals": {
+    "ods": {
+      "ODS 1": 138,
+      "ODS 10": 123,
+      "ODS 11": 366,
+      "ODS 12": 351,
+      "ODS 13": 51,
+      "ODS 14": 135,
+      "ODS 15": 470,
+      "ODS 16": 341,
+      "ODS 17": 189,
+      "ODS 2": 419,
+      "ODS 3": 1431,
+      "ODS 4": 1520,
+      "ODS 5": 164,
+      "ODS 6": 215,
+      "ODS 7": 494,
+      "ODS 8": 658,
+      "ODS 9": 765
+    },
+    "pdot": {
+      "PDOT 1": 1440,
+      "PDOT 2": 2340,
+      "PDOT 3": 1284,
+      "PDOT 4": 903,
+      "PDOT 5": 1080,
+      "PDOT 6": 783
+    },
+    "need": {
+      "Local need 01": 241,
+      "Local need 02": 649,
+      "Local need 03": 929,
+      "Local need 04": 688,
+      "Local need 05": 878,
+      "Local need 06": 1164,
+      "Local need 07": 1645,
+      "Local need 08": 560,
+      "Local need 09": 720,
+      "Local need 10": 356
+    }
+  },
+  "local_need_codes_are_indexed_source_order": true,
+  "faculty_resolution": {
+    "strict_known_five_faculty_rows": 6038,
+    "unknown_or_misc_input_rows": 1792,
+    "career_mappings_eligible": 67,
+    "career_imputed_rows": 188,
+    "unresolved_rows": 1604,
+    "minimum_career_support": 10,
+    "minimum_mapping_purity": 0.98,
+    "rule": "strict learned mapping from explicitly labeled real-faculty rows",
+    "caution": "Imputed faculty is not an official administrative record; report sensitivity excluding it."
+  },
+  "faculty_provenance_counts": {
+    "metadata": 6038,
+    "unresolved": 1604,
+    "career_imputed": 188
+  },
+  "adviser_records_with_nonempty_value": 7541,
+  "distinct_unstandardized_adviser_strings": 1091,
+  "labels_generated_from": "frozen source descriptors, not human validated",
+  "reported_human_review_provenance": "author states A/B and 47-case committee decisions are human; this script does not verify signed minutes",
+  "policy_taxonomy_status": "six PDOT analytical categories; official policy equivalence not yet independently approved",
+  "incomplete_2026_caution": true,
+  "limitations": [
+    "Fulltext-centered was explored retrospectively on the 120 random cases. Never call it prospectively selected.",
+    "Top-1 forced labels reflect thematic affinity only, not sustainability contribution.",
+    "Ten local-need category labels are source-defined and await policy provenance approval.",
+    "Career faculty imputations are heuristic; five-faculty statistics should report a strict-source sensitivity.",
+    "The private model snapshot and ID-bearing input must never be uploaded to the public GitHub repo."
+  ]
+}

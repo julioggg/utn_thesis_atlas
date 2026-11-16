@@ -1,0 +1,12 @@
+| Measure | Value |
+| --- | --- |
+| Analytical repository records | 7830 |
+| Source-verified genuine-faculty records | 6038 |
+| Career-imputed faculty records | 188 |
+| Unresolved faculty records | 1604 |
+| Records with a nonempty advisor value | 7541 |
+| Distinct unstandardized advisor values | 1091 |
+| Earliest documented year | 2021 |
+| Latest documented year (2026 incomplete) | 2026 |
+| Human reference reviewed by coders | 450 |
+| Main-label conflicts examined by committee | 47 |

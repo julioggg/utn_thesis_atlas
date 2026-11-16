@@ -1,0 +1,10 @@
+| Domain | Coder | E5 variant | Paired n | Delta accuracy (pp) | Bootstrap 95% lower (pp) | Bootstrap 95% upper (pp) | Cases gained | Cases lost | Exact McNemar p (unadjusted) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| SDG | A | legacy_raw | 120 | -3.333 | -14.167 | 7.5 | 20 | 24 | 0.6515878 |
+| SDG | A | fulltext_centered | 120 | 8.333 | -1.667 | 18.333 | 25 | 15 | 0.1538599 |
+| SDG | B | legacy_raw | 120 | 1.667 | -9.167 | 12.5 | 23 | 21 | 0.8803958 |
+| SDG | B | fulltext_centered | 120 | 12.5 | 2.5 | 22.5 | 27 | 12 | 0.0237027 |
+| PDOT | A | legacy_raw | 120 | -6.667 | -18.333 | 5.0 | 21 | 29 | 0.3222363 |
+| PDOT | A | fulltext_centered | 120 | 4.167 | -5.833 | 14.167 | 21 | 16 | 0.5113758 |
+| PDOT | B | legacy_raw | 120 | -5.833 | -17.5 | 5.833 | 21 | 28 | 0.3916029 |
+| PDOT | B | fulltext_centered | 120 | 5.0 | -4.167 | 15.0 | 21 | 15 | 0.4050322 |

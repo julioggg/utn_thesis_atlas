@@ -1,0 +1,786 @@
+{
+  "schema_version": 1,
+  "status": "descriptive_editorial_numbers_lock_not_prospective_validation",
+  "dataset": "fulltext_centered exploratory top-1; NOT policy impact",
+  "n_corpus": 7830,
+  "snapshot_sha256": "4ec49150b95032506c33f9406964bb3e141eeceea8f8de7f533d9f7d681f7167",
+  "model_source_sha256": "6bbb747912c12a63131f2c5635878007d17825465177ca64bc93565b4bf2ed23",
+  "faculty_counts": {
+    "Applied Engineering": 1800,
+    "Unassigned": 1604,
+    "Education and Technology": 1588,
+    "Business and Economics": 1407,
+    "Health Sciences": 738,
+    "Agro-Environmental Eng.": 693
+  },
+  "faculty_lineage_counts": {
+    "metadata": 6038,
+    "unresolved": 1604,
+    "career_imputed": 188
+  },
+  "advisor_reported_records": 7541,
+  "advisor_unique_unstandardized": 1091,
+  "sdg4_top1_n": 1520,
+  "sdg_counts_17": {
+    "SDG 1": 138,
+    "SDG 2": 419,
+    "SDG 3": 1431,
+    "SDG 4": 1520,
+    "SDG 5": 164,
+    "SDG 6": 215,
+    "SDG 7": 494,
+    "SDG 8": 658,
+    "SDG 9": 765,
+    "SDG 10": 123,
+    "SDG 11": 366,
+    "SDG 12": 351,
+    "SDG 13": 51,
+    "SDG 14": 135,
+    "SDG 15": 470,
+    "SDG 16": 341,
+    "SDG 17": 189
+  },
+  "pdot_analytical_counts_6": {
+    "Axis 1": 1440,
+    "Axis 2": 2340,
+    "Axis 3": 1284,
+    "Axis 4": 903,
+    "Axis 5": 1080,
+    "Axis 6": 783
+  },
+  "local_need_counts_source_order": {
+    "Local priority 01": 241,
+    "Local priority 02": 649,
+    "Local priority 03": 929,
+    "Local priority 04": 688,
+    "Local priority 05": 878,
+    "Local priority 06": 1164,
+    "Local priority 07": 1645,
+    "Local priority 08": 560,
+    "Local priority 09": 720,
+    "Local priority 10": 356
+  },
+  "human_agreement_before_adjudication": {
+    "SDG": {
+      "observed_agreement": 0.922222,
+      "cohen_kappa": 0.913088
+    },
+    "PDOT": {
+      "observed_agreement": 0.953333,
+      "cohen_kappa": 0.938504
+    }
+  },
+  "faculty_sdg_inference": {
+    "five_faculty_n": 6226,
+    "chi_squared": 13589.6156,
+    "permutation_p_value": 0.001,
+    "permutations": 999,
+    "df_nominal": 64,
+    "cramers_v": 0.738702,
+    "min_expected": 4.452297,
+    "n_expected_below_5": 2,
+    "n_expected_below_1": 0,
+    "fraction_expected_below_5": 0.023529,
+    "residuals_compared_only_where_expected_at_least_5": 83,
+    "significant_adjusted_residual_cells": [
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 1",
+        "observed": 0,
+        "expected": 32.38,
+        "adjusted_residual_z": -6.811,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 2",
+        "observed": 27,
+        "expected": 104.947,
+        "adjusted_residual_z": -9.299,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 3",
+        "observed": 136,
+        "expected": 293.158,
+        "adjusted_residual_z": -11.898,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 4",
+        "observed": 37,
+        "expected": 300.385,
+        "adjusted_residual_z": -19.747,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 5",
+        "observed": 6,
+        "expected": 34.404,
+        "adjusted_residual_z": -5.799,
+        "q_bh": 1.2e-08
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 6",
+        "observed": 127,
+        "expected": 53.196,
+        "adjusted_residual_z": 12.183,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 7",
+        "observed": 420,
+        "expected": 135.014,
+        "adjusted_residual_z": 30.246,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 8",
+        "observed": 9,
+        "expected": 168.84,
+        "adjusted_residual_z": -15.326,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 9",
+        "observed": 628,
+        "expected": 198.619,
+        "adjusted_residual_z": 38.311,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 11",
+        "observed": 51,
+        "expected": 83.553,
+        "adjusted_residual_z": -4.325,
+        "q_bh": 2.2564e-05
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 12",
+        "observed": 168,
+        "expected": 92.226,
+        "adjusted_residual_z": 9.608,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 13",
+        "observed": 23,
+        "expected": 11.564,
+        "adjusted_residual_z": 4.001,
+        "q_bh": 8.4351e-05
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 15",
+        "observed": 29,
+        "expected": 119.981,
+        "adjusted_residual_z": -10.197,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 16",
+        "observed": 22,
+        "expected": 69.097,
+        "adjusted_residual_z": -6.853,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Aplicadas",
+        "ods": "ODS 17",
+        "observed": 60,
+        "expected": 46.836,
+        "adjusted_residual_z": 2.312,
+        "q_bh": 0.02333727
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 1",
+        "observed": 3,
+        "expected": 28.567,
+        "adjusted_residual_z": -5.593,
+        "q_bh": 3.7e-08
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 2",
+        "observed": 4,
+        "expected": 92.587,
+        "adjusted_residual_z": -10.992,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 3",
+        "observed": 199,
+        "expected": 258.63,
+        "adjusted_residual_z": -4.695,
+        "q_bh": 4.091e-06
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 4",
+        "observed": 987,
+        "expected": 265.007,
+        "adjusted_residual_z": 56.298,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 5",
+        "observed": 46,
+        "expected": 30.352,
+        "adjusted_residual_z": 3.323,
+        "q_bh": 0.001088124
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 6",
+        "observed": 0,
+        "expected": 46.931,
+        "adjusted_residual_z": -8.057,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 7",
+        "observed": 1,
+        "expected": 119.113,
+        "adjusted_residual_z": -13.037,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 8",
+        "observed": 57,
+        "expected": 148.955,
+        "adjusted_residual_z": -9.17,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 9",
+        "observed": 22,
+        "expected": 175.226,
+        "adjusted_residual_z": -14.219,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 10",
+        "observed": 55,
+        "expected": 20.66,
+        "adjusted_residual_z": 8.811,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 11",
+        "observed": 94,
+        "expected": 73.712,
+        "adjusted_residual_z": 2.804,
+        "q_bh": 0.005824455
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 12",
+        "observed": 17,
+        "expected": 81.364,
+        "adjusted_residual_z": -8.488,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 14",
+        "observed": 18,
+        "expected": 28.567,
+        "adjusted_residual_z": -2.311,
+        "q_bh": 0.02333727
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 15",
+        "observed": 12,
+        "expected": 105.85,
+        "adjusted_residual_z": -10.94,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Educación Ciencia y Tecnología",
+        "ods": "ODS 17",
+        "observed": 18,
+        "expected": 41.32,
+        "adjusted_residual_z": -4.259,
+        "q_bh": 2.9385e-05
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 1",
+        "observed": 108,
+        "expected": 25.311,
+        "adjusted_residual_z": 18.852,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 3",
+        "observed": 21,
+        "expected": 229.152,
+        "adjusted_residual_z": -17.082,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 4",
+        "observed": 11,
+        "expected": 234.801,
+        "adjusted_residual_z": -18.188,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 5",
+        "observed": 57,
+        "expected": 26.893,
+        "adjusted_residual_z": 6.663,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 6",
+        "observed": 18,
+        "expected": 41.582,
+        "adjusted_residual_z": -4.22,
+        "q_bh": 3.4438e-05
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 7",
+        "observed": 6,
+        "expected": 105.536,
+        "adjusted_residual_z": -11.451,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 8",
+        "observed": 518,
+        "expected": 131.977,
+        "adjusted_residual_z": 40.122,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 9",
+        "observed": 37,
+        "expected": 155.254,
+        "adjusted_residual_z": -11.437,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 10",
+        "observed": 6,
+        "expected": 18.305,
+        "adjusted_residual_z": -3.291,
+        "q_bh": 0.001202856
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 11",
+        "observed": 133,
+        "expected": 65.31,
+        "adjusted_residual_z": 9.749,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 12",
+        "observed": 117,
+        "expected": 72.09,
+        "adjusted_residual_z": 6.172,
+        "q_bh": 1e-09
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 14",
+        "observed": 7,
+        "expected": 25.311,
+        "adjusted_residual_z": -4.175,
+        "q_bh": 4.1285e-05
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 15",
+        "observed": 21,
+        "expected": 93.785,
+        "adjusted_residual_z": -8.843,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 16",
+        "observed": 167,
+        "expected": 54.011,
+        "adjusted_residual_z": 17.821,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias Administrativas y Económicas",
+        "ods": "ODS 17",
+        "observed": 83,
+        "expected": 36.61,
+        "adjusted_residual_z": 8.83,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 1",
+        "observed": 1,
+        "expected": 13.276,
+        "adjusted_residual_z": -3.621,
+        "q_bh": 0.000374337
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 2",
+        "observed": 62,
+        "expected": 43.028,
+        "adjusted_residual_z": 3.174,
+        "q_bh": 0.001754771
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 3",
+        "observed": 655,
+        "expected": 120.195,
+        "adjusted_residual_z": 56.788,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 4",
+        "observed": 4,
+        "expected": 123.158,
+        "adjusted_residual_z": -12.53,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 6",
+        "observed": 0,
+        "expected": 21.81,
+        "adjusted_residual_z": -5.049,
+        "q_bh": 7.07e-07
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 7",
+        "observed": 0,
+        "expected": 55.356,
+        "adjusted_residual_z": -8.24,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 8",
+        "observed": 0,
+        "expected": 69.225,
+        "adjusted_residual_z": -9.309,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 9",
+        "observed": 0,
+        "expected": 81.434,
+        "adjusted_residual_z": -10.19,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 10",
+        "observed": 3,
+        "expected": 9.601,
+        "adjusted_residual_z": -2.284,
+        "q_bh": 0.024753862
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 11",
+        "observed": 0,
+        "expected": 34.257,
+        "adjusted_residual_z": -6.384,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 12",
+        "observed": 0,
+        "expected": 37.813,
+        "adjusted_residual_z": -6.724,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 14",
+        "observed": 2,
+        "expected": 13.276,
+        "adjusted_residual_z": -3.326,
+        "q_bh": 0.001088124
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 15",
+        "observed": 0,
+        "expected": 49.192,
+        "adjusted_residual_z": -7.733,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 16",
+        "observed": 0,
+        "expected": 28.33,
+        "adjusted_residual_z": -5.781,
+        "q_bh": 1.3e-08
+      },
+      {
+        "faculty": "Facultad de Ciencias de la Salud",
+        "ods": "ODS 17",
+        "observed": 0,
+        "expected": 19.203,
+        "adjusted_residual_z": -4.729,
+        "q_bh": 3.527e-06
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 1",
+        "observed": 0,
+        "expected": 12.466,
+        "adjusted_residual_z": -3.78,
+        "q_bh": 0.000203776
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 2",
+        "observed": 178,
+        "expected": 40.405,
+        "adjusted_residual_z": 23.662,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 3",
+        "observed": 3,
+        "expected": 112.866,
+        "adjusted_residual_z": -11.99,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 4",
+        "observed": 0,
+        "expected": 115.648,
+        "adjusted_residual_z": -12.498,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 5",
+        "observed": 0,
+        "expected": 13.246,
+        "adjusted_residual_z": -3.898,
+        "q_bh": 0.000127741
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 6",
+        "observed": 39,
+        "expected": 20.481,
+        "adjusted_residual_z": 4.407,
+        "q_bh": 1.5853e-05
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 8",
+        "observed": 0,
+        "expected": 65.004,
+        "adjusted_residual_z": -8.984,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 9",
+        "observed": 0,
+        "expected": 76.468,
+        "adjusted_residual_z": -9.835,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 10",
+        "observed": 0,
+        "expected": 9.016,
+        "adjusted_residual_z": -3.206,
+        "q_bh": 0.001595536
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 11",
+        "observed": 11,
+        "expected": 32.168,
+        "adjusted_residual_z": -4.054,
+        "q_bh": 6.8434e-05
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 12",
+        "observed": 17,
+        "expected": 35.507,
+        "adjusted_residual_z": -3.382,
+        "q_bh": 0.000903623
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 14",
+        "observed": 45,
+        "expected": 12.466,
+        "adjusted_residual_z": 9.863,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 15",
+        "observed": 353,
+        "expected": 46.193,
+        "adjusted_residual_z": 49.566,
+        "q_bh": 0.0
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 16",
+        "observed": 0,
+        "expected": 26.602,
+        "adjusted_residual_z": -5.579,
+        "q_bh": 3.9e-08
+      },
+      {
+        "faculty": "Facultad de Ingeniería en Ciencias Agropecuarias y Ambientales",
+        "ods": "ODS 17",
+        "observed": 1,
+        "expected": 18.032,
+        "adjusted_residual_z": -4.311,
+        "q_bh": 2.3652e-05
+      }
+    ],
+    "interpretation": "Permutation inference avoids relying solely on asymptotic chi-square when expected cells are sparse. Association is expected for discipline-defined faculties."
+  },
+  "model_validation": {
+    "n_class_metric_rows": 50,
+    "human_reference": "A and B separately; consensus reference not frozen in this analysis",
+    "tfidf_e5_paired_result_sha256": "99664e79cd850441213780ff6ab6bbf8e8700e17e8e15d0cbfe5f16871ba3cc8"
+  },
+  "figures": {
+    "Figure 01": {
+      "png": "Figure_01_Methodological_Framework.png",
+      "pdf": "Figure_01_Methodological_Framework.pdf",
+      "svg": "Figure_01_Methodological_Framework.svg",
+      "raster_dpi": 600,
+      "vector_formats": [
+        "pdf",
+        "svg"
+      ]
+    },
+    "Figure 02": {
+      "png": "Figure_02_Annual_Thesis_Production.png",
+      "pdf": "Figure_02_Annual_Thesis_Production.pdf",
+      "svg": "Figure_02_Annual_Thesis_Production.svg",
+      "raster_dpi": 600,
+      "vector_formats": [
+        "pdf",
+        "svg"
+      ]
+    },
+    "Figure 03": {
+      "png": "Figure_03_Faculty_SDG_Heatmap.png",
+      "pdf": "Figure_03_Faculty_SDG_Heatmap.pdf",
+      "svg": "Figure_03_Faculty_SDG_Heatmap.svg",
+      "raster_dpi": 600,
+      "vector_formats": [
+        "pdf",
+        "svg"
+      ]
+    },
+    "Figure 04": {
+      "png": "Figure_04_Faculty_PDOT_Heatmap.png",
+      "pdf": "Figure_04_Faculty_PDOT_Heatmap.pdf",
+      "svg": "Figure_04_Faculty_PDOT_Heatmap.svg",
+      "raster_dpi": 600,
+      "vector_formats": [
+        "pdf",
+        "svg"
+      ]
+    },
+    "Figure 05": {
+      "png": "Figure_05_Local_Needs_Separate_Measures.png",
+      "pdf": "Figure_05_Local_Needs_Separate_Measures.pdf",
+      "svg": "Figure_05_Local_Needs_Separate_Measures.svg",
+      "raster_dpi": 600,
+      "vector_formats": [
+        "pdf",
+        "svg"
+      ]
+    },
+    "Figure 06": {
+      "png": "Figure_06_Centroid_Cosine_Distance.png",
+      "pdf": "Figure_06_Centroid_Cosine_Distance.pdf",
+      "svg": "Figure_06_Centroid_Cosine_Distance.svg",
+      "raster_dpi": 600,
+      "vector_formats": [
+        "pdf",
+        "svg"
+      ]
+    },
+    "Figure 07": {
+      "png": "Figure_07_Topic_Share_Change.png",
+      "pdf": "Figure_07_Topic_Share_Change.pdf",
+      "svg": "Figure_07_Topic_Share_Change.svg",
+      "raster_dpi": 600,
+      "vector_formats": [
+        "pdf",
+        "svg"
+      ]
+    },
+    "Figure S01": {
+      "png": "Figure_S01_Method_Accuracy_Sensitivity.png",
+      "pdf": "Figure_S01_Method_Accuracy_Sensitivity.pdf",
+      "svg": "Figure_S01_Method_Accuracy_Sensitivity.svg",
+      "raster_dpi": 600,
+      "vector_formats": [
+        "pdf",
+        "svg"
+      ]
+    }
+  },
+  "limitations": [
+    "All SDG/PDOT/need counts are forced single-label semantic top-1 distributions.",
+    "Human classification was declared genuine by the corresponding author; signed committee provenance is a separate documentary item.",
+    "Model comparison A/B does not equal committee-adjudicated gold-standard performance.",
+    "Fulltext-centered was investigated using the same 120-case comparison sample: retrospective exploratory choice.",
+    "Local-priority source terms have not been independently translated/certified for public release.",
+    "The composite coverage index has been excluded; PDOT policy official equivalence remains unverified.",
+    "Small expected contingency cells may affect asymptotic inference; 999-shuffle permutation test reported.",
+    "No inferred advisor profiles, hidden capabilities, impact claims, UMAP convex-hull areas or fabricated silhouette values are provided."
+  ]
+}
