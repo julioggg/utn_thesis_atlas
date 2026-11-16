@@ -12,9 +12,17 @@ class LexicalE5PairedTests(unittest.TestCase):
         ods=[f"ODS {i} Goal" for i in range(17,0,-1)]
         self.assertEqual(key_labels(ods,"ods"),[f"ODS {i}" for i in range(17,0,-1)])
         pdot=list(PDOT_ID)
-        self.assertEqual(key_labels(pdot,"pdot"),list(PDOT_ID.values()))
+        canonical=list(PDOT_ID.values())
+        # E5 source report: historical full category names.
+        self.assertEqual(key_labels(pdot,"pdot"),canonical)
+        # TF-IDF frozen .npz: already normalized PDOT 1..6.
+        self.assertEqual(key_labels(canonical,"pdot"),canonical)
+        # Reversed order must be preserved, never sorted or reindexed.
+        self.assertEqual(key_labels(canonical[::-1],"pdot"),canonical[::-1])
         with self.assertRaisesRegex(ValueError,"human codebook"):
             key_labels(["ODS 4"],"ods")
+        with self.assertRaisesRegex(ValueError,"human codebook"):
+            key_labels(canonical[:-1]+[pdot[-1]],"pdot")
 
     def test_paired_difference_and_macrof1_fully_recomputed(self):
         truth=np.array(["ODS 4"]*60+["ODS 3"]*60)
