@@ -156,8 +156,8 @@ def analyze(args):
         if any(f"{domain}_{variant}_scores" not in keys
                for domain in DOMAINS for variant in VARIANTS):
             raise ValueError("One or more frozen representation matrices missing")
-        per_domain={}
         for domain in DOMAINS:
+            per_domain={}
             source_labels=(
                 normalize_codes(corpus["ods_top1"])
                 if domain=="ods" else
@@ -166,7 +166,6 @@ def analyze(args):
             allowed=set(CLASSES[domain])-{NONE}
             if any(x not in allowed for x in source_labels):
                 raise ValueError("Unrecognized archived ODS/PDOT category")
-            per_domain[domain]={}
             for variant in VARIANTS:
                 scores=np.asarray(matrices[f"{domain}_{variant}_scores"],
                                   dtype=np.float32)
@@ -213,6 +212,19 @@ def analyze(args):
         "Descriptor provenance is historical source-code lineage; official PDOT axes may differ from analytic labels.",
         "No positive SDG impact follows from embedding thematic proximity."
     ]
+    # Validate the exact nested schema BEFORE saving any report.
+    for domain in DOMAINS:
+        if set(result["comparisons"].get(domain, {})) != set(VARIANTS):
+            raise ValueError("Four-variant result has invalid domain keys")
+        for variant in VARIANTS:
+            by_coder = result["comparisons"][domain][variant]
+            if set(by_coder) != {"A", "B"}:
+                raise ValueError("Expected independent A and B results per variant")
+            for coder in ("A", "B"):
+                if set(by_coder[coder]) != {
+                    "random_120", "enriched_330", "pooled_450_descriptive_only"
+                }:
+                    raise ValueError("Expected frozen 120/330/450 reports per coder")
     return result
 
 
@@ -226,9 +238,9 @@ def main():
     parser.add_argument("--reclassification-report",type=Path,default=Path(
         "docs/audits/reviewer_fulltext_reclassification_v1.json"))
     parser.add_argument("--private-metrics-dir",type=Path,default=Path(
-        "data/revision_private/four_e5_variant_coder_metrics"))
+        "data/revision_private/four_e5_variant_coder_metrics_v2"))
     parser.add_argument("--output",type=Path,default=Path(
-        "docs/audits/reviewer_four_e5_variant_dual_coder_metrics.json"))
+        "docs/audits/reviewer_four_e5_variant_dual_coder_metrics_v2.json"))
     args=parser.parse_args()
     report=analyze(args)
     out=write_public(report,args.output,Path(__file__).resolve().parent.parent)
