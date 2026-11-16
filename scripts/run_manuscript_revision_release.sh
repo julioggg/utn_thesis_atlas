@@ -11,9 +11,17 @@ if [ -n "$(git diff --cached --name-only)" ]; then
   echo "ERROR: Existing staged changes; refuse potentially unsafe automatic push." >&2
   exit 2
 fi
-if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
-  echo "ERROR: Git working tree has modifications; preserve them before running." >&2
-  exit 2
+# Previous CEDIA analyses may have modified tracked audit reports.
+# Do not discard them, and do not force their inclusion in a public commit.
+# A fast-forward pull itself will refuse updates that conflict with local edits.
+dirty_paths="$(git diff --name-only)"
+if [ -n "$dirty_paths" ]; then
+  echo "NOTE: Existing unstaged tracked modifications will be preserved:"
+  printf '%s\\n' "$dirty_paths"
+  if printf '%s\\n' "$dirty_paths" | grep -E '^docs/revision_assets/v1/' >/dev/null; then
+    echo "ERROR: Public release directory has existing manual edits. Review them first." >&2
+    exit 2
+  fi
 fi
 git pull --ff-only origin main
 
