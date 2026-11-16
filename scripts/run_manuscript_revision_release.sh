@@ -17,8 +17,8 @@ fi
 dirty_paths="$(git diff --name-only)"
 if [ -n "$dirty_paths" ]; then
   echo "NOTE: Existing unstaged tracked modifications will be preserved:"
-  printf '%s\\n' "$dirty_paths"
-  if printf '%s\\n' "$dirty_paths" | grep -E '^docs/revision_assets/v1/' >/dev/null; then
+  printf '%s\n' "$dirty_paths"
+  if printf '%s\n' "$dirty_paths" | grep -E '^docs/revision_assets/v1/' >/dev/null; then
     echo "ERROR: Public release directory has existing manual edits. Review them first." >&2
     exit 2
   fi
