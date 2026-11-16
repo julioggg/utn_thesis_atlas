@@ -32,7 +32,7 @@ class ManuscriptAssetsSafetyTests(unittest.TestCase):
         scores=np.zeros((7830,17),dtype=np.float32)
         labels=[f"ODS {i}" for i in range(1,18)]
         labels[-1]="ODS 4"
-        with self.assertRaisesRegex(ValueError,"descriptor IDs"):
+        with self.assertRaisesRegex(ValueError,"Taxonomy size/uniqueness|descriptor IDs"):
             selected_labels(scores,labels,"ods")
         with self.assertRaisesRegex(ValueError,"score matrix"):
             selected_labels(np.zeros((10,17)),[f"ODS {i}" for i in range(1,18)],"ods")
