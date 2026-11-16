@@ -52,7 +52,7 @@ class PublicationRenderSmokeTests(unittest.TestCase):
         self.assertGreaterEqual(x/39.3701,599)
         svg_text=svg.read_text(encoding="utf-8")
         self.assertTrue(svg_text.lstrip().startswith("<?xml"))
-        self.assertFalse(any(line.endswith((" ","\\t")) for line in svg_text.splitlines()),
+        self.assertFalse(any(line.rstrip(" \\t") != line for line in svg_text.splitlines()),
                          "SVG has trailing whitespace and would fail git diff --check")
 
     def test_core_figure_rendering(self):
