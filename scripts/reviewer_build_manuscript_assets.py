@@ -29,6 +29,7 @@ from reviewer_stage1_stats import contingency_and_tests
 
 N=7830
 DOMAINS=("ods","pdot","need")
+REPORT_DOMAIN_LABEL = {"ods": "SDG", "pdot": "PDOT"}
 MODELS=(
     ("legacy_raw","Legacy E5"),
     ("legacy_centered","Legacy E5 centered"),
@@ -122,13 +123,13 @@ def model_validation(workspace,table_dir):
     for domain in ("ods","pdot"):
         for who in ("A","B"):
             l=lexical["comparisons"][domain]["human_coders"][who]["random_120"]
-            rows.append((domain.upper(),who,"TF-IDF","random_120", "accuracy",l["accuracy"]))
-            rows.append((domain.upper(),who,"TF-IDF","random_120", "macro-F1",l["macro_f1_present_or_predicted_classes"]))
+            rows.append((REPORT_DOMAIN_LABEL[domain],who,"TF-IDF","random_120", "accuracy",l["accuracy"]))
+            rows.append((REPORT_DOMAIN_LABEL[domain],who,"TF-IDF","random_120", "macro-F1",l["macro_f1_present_or_predicted_classes"]))
             for variant,title in MODELS:
                 r=v2["comparisons"][domain][variant][who]["random_120"]
                 if r["n"]!=120 or l["n"]!=120:raise ValueError("Model 120-case roster changed")
-                rows.append((domain.upper(),who,title,"random_120","accuracy",r["accuracy"]))
-                rows.append((domain.upper(),who,title,"random_120",
+                rows.append((REPORT_DOMAIN_LABEL[domain],who,title,"random_120","accuracy",r["accuracy"]))
+                rows.append((REPORT_DOMAIN_LABEL[domain],who,title,"random_120",
                              "macro-F1",r["macro_f1_present_or_predicted_classes"]))
     model=pd.DataFrame(rows,columns=["domain","coder","method","stratum","metric","value"])
     if len(model)!=40:raise ValueError("Expected 40 model metric rows")
@@ -141,7 +142,7 @@ def model_validation(workspace,table_dir):
             for cand in ("legacy_raw","fulltext_centered"):
                 x=paired["comparisons"][domain][who][cand]
                 p=x["paired_candidate_minus_lexical"]
-                paired_rows.append((domain.upper(),who,cand,
+                paired_rows.append((REPORT_DOMAIN_LABEL[domain],who,cand,
                     p["n"],p["accuracy_delta_points"],p["delta_bootstrap95_points"][0],
                     p["delta_bootstrap95_points"][1],
                     p["candidate_correct_baseline_wrong_n"],
@@ -163,7 +164,7 @@ def model_validation(workspace,table_dir):
                 raise ValueError("Per-class 120-case validation support mismatched")
             for vals in x.to_dict(orient="records"):
                 # Reserved Python word 'class' is safe as a dict key.
-                class_rows.append((domain.upper(),who,vals["class"],
+                class_rows.append((REPORT_DOMAIN_LABEL[domain],who,vals["class"],
                    int(vals["reference_n"]),int(vals["predicted_n"]),
                    round(float(vals["precision"]),4),
                    round(float(vals["recall"]),4),round(float(vals["f1"]),4)))
@@ -316,7 +317,7 @@ def build(args):
         a=labels_from_coder(humans["A"],domain)
         b=labels_from_coder(humans["B"],domain)
         stats=agreement(a,b)
-        agreements.append((domain.upper(),450,stats["observed_agreement"],
+        agreements.append((REPORT_DOMAIN_LABEL[domain],450,stats["observed_agreement"],
                            stats["cohen_kappa"],stats["classes_observed"]))
     table(tables,"Table_07_Human_Interrater_Agreement",
           ["Domain","Two-coder sample n","Observed agreement","Cohen kappa",
