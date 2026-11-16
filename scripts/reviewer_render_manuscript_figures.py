@@ -60,8 +60,16 @@ def save(fig,outdir,name):
                 facecolor="white",metadata={"Software":"Matplotlib"})
     fig.savefig(outdir/(name+".pdf"),bbox_inches="tight",pad_inches=.18,
                 facecolor="white")
-    fig.savefig(outdir/(name+".svg"),bbox_inches="tight",pad_inches=.18,
+    svg_path=outdir/(name+".svg")
+    fig.savefig(svg_path,bbox_inches="tight",pad_inches=.18,
                 facecolor="white")
+    # Matplotlib emits whitespace-padded multiline SVG path attributes.
+    # Strip only end-of-line spaces/tabs; do not modify geometric commands,
+    # so Git whitespace checks accept source-derived vector figures.
+    svg_text=svg_path.read_text(encoding="utf-8")
+    svg_clean="\n".join(line.rstrip(" \t") for line in svg_text.split("\n"))
+    if svg_clean!=svg_text:
+        svg_path.write_text(svg_clean,encoding="utf-8")
     import matplotlib.pyplot as plt
     plt.close(fig)
     return {"png":name+".png","pdf":name+".pdf","svg":name+".svg",
