@@ -161,9 +161,8 @@ def model_validation(workspace,table_dir):
             if not req.issubset(x.columns):raise ValueError("Missing F1 support details")
             if len(x)!=n+1 or sum(x["reference_n"])!=120:
                 raise ValueError("Per-class 120-case validation support mismatched")
-            for r in x.itertuples(index=False):
-                # Use attribute-safe access through column labels, never include thesis handles.
-                vals=r._asdict()
+            for vals in x.to_dict(orient="records"):
+                # Reserved Python word 'class' is safe as a dict key.
                 class_rows.append((domain.upper(),who,vals["class"],
                    int(vals["reference_n"]),int(vals["predicted_n"]),
                    round(float(vals["precision"]),4),
