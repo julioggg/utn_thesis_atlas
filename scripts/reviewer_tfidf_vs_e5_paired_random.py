@@ -39,8 +39,18 @@ def key_labels(source_names,domain):
         labels=list(normalize_codes(original))
         expected={f"ODS {i}" for i in range(1,18)}
     elif domain=="pdot":
-        labels=[PDOT_ID.get(x,"[invalid]") for x in original]
         expected={f"PDOT {i}" for i in range(1,7)}
+        # The historical TF-IDF writer stores CANONICAL codes ("PDOT 1"
+        # ... "PDOT 6") in pdot_source_names, not original source-text
+        # names ("Sistema Físico Ambiental", etc.). In contrast, E5 report
+        # dictionaries preserve original names. Both forms are valid, but
+        # ambiguous mixed-format taxonomies must be rejected.
+        if set(original)==expected:
+            labels=list(original)
+        elif set(original)==set(PDOT_ID):
+            labels=[PDOT_ID[x] for x in original]
+        else:
+            raise ValueError("Descriptor list does not match human codebook")
     else:
         raise ValueError("Unknown domain")
     if len(labels)!=len(expected) or set(labels)!=expected:
