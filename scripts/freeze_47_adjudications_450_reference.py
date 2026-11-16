@@ -50,7 +50,7 @@ def read_47(path):
     hdr=rows.get(5,{})
     if tuple(hdr.get(j,"").strip() for j in range(1,21))!=HEADS:
         raise ValueError("Changed original 47-case header")
-    if set(rows)-{1,2,3,5} != set(range(6,53)):
+    if set(rows)-{1,2,3,4,5} != set(range(6,53)):
         raise ValueError("Unexpected 47-case Excel data row range")
     recs=[{j:rows[i].get(j,"").strip() for j in range(1,21)} for i in range(6,53)]
     if len({r[1] for r in recs})!=47 or any(not r[2] for r in recs):
