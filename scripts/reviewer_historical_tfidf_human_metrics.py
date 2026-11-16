@@ -22,7 +22,6 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
 
 from audit_annotation_progress import inspect_files
 from reviewer_legacy_alignment_replay import freeze_original_dicts
@@ -63,6 +62,7 @@ def prepare_lexical_texts(taxonomy,domain):
 
 
 def fit_lexical_baseline(corpus,fit_mask,queries,max_features=150000):
+    from sklearn.feature_extraction.text import TfidfVectorizer
     texts=list(corpus)
     train=np.asarray(fit_mask,dtype=bool)
     if train.ndim!=1 or train.size!=len(texts) or not train.any():
@@ -86,6 +86,7 @@ def fit_lexical_baseline(corpus,fit_mask,queries,max_features=150000):
 
 
 def analyze(args):
+    from sklearn.feature_extraction.text import TfidfVectorizer
     workspace=Path(__file__).resolve().parent.parent
     private=(workspace/"data/revision_private").resolve()
     coder_dir=args.private_dir.expanduser().resolve()
