@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "purpose": "Sustainability second-round readiness; presence checks only",
+  "public_report_status": {
+    "corpus_audit": {
+      "present": true,
+      "not_content_verified": true
+    },
+    "provenance_audit": {
+      "present": true,
+      "not_content_verified": true
+    },
+    "token_length_audit": {
+      "present": true,
+      "not_content_verified": true
+    },
+    "hpc_inventory": {
+      "present": true,
+      "not_content_verified": true
+    },
+    "faculty_statistics": {
+      "present": true,
+      "not_content_verified": true
+    },
+    "geometry_and_trends": {
+      "present": true,
+      "not_content_verified": true
+    },
+    "k_and_seed_stability": {
+      "present": true,
+      "not_content_verified": true
+    },
+    "figure_reconciliation": {
+      "present": true,
+      "not_content_verified": true
+    },
+    "descriptor_source_inventory": {
+      "present": true,
+      "not_content_verified": true
+    },
+    "suite_status": {
+      "present": true,
+      "not_content_verified": true
+    },
+    "lexical_human_baseline": {
+      "present": true,
+      "not_content_verified": true
+    },
+    "historical_alignment_replay": {
+      "present": true,
+      "not_content_verified": true
+    }
+  },
+  "private_input_status": {
+    "frozen_original_alignment": {
+      "present_on_HPC": true
+    },
+    "human_sample_master": {
+      "present_on_HPC": true
+    },
+    "human_coder_A": {
+      "present_on_HPC": true
+    },
+    "human_coder_B": {
+      "present_on_HPC": true
+    },
+    "descriptor_source_candidates": {
+      "present_on_HPC": true
+    },
+    "frozen_lexical_scores": {
+      "present_on_HPC": true
+    }
+  },
+  "interpretation": [
+    "Presence is not evidence of successful execution, scientific validity, or public-release approval.",
+    "No PDF, thesis text, student/advisor record, annotation, prediction, embedding, private path or raw log was exported.",
+    "All aggregate JSON reports require individual disclosure and scientific review before GitHub publication.",
+    "Missing results may exist under alternative paths or may not have been committed."
+  ]
+}
